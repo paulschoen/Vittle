@@ -11,13 +11,5 @@
  * It is generally better to create a new file per style scope.
  *
 */
+@import "bootstrap-sprockets";
 @import "bootstrap";
-ul.hmenu {
-  list-style: none;
-  margin: 0 0 2em;
-  padding: 0;
-}
-
-ul.hmenu li {
-  display: inline;
-}

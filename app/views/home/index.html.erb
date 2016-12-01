@@ -1,0 +1,8 @@
+<h1>Restaurants</h1>
+<div class="panel panel-default">
+    <% @hi.each do |place| %>
+    <div class="panel-body">
+      <%= place["name"] %>
+    </div>
+    <% end %>
+</div>
