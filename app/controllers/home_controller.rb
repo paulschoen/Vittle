@@ -6,10 +6,10 @@ class HomeController < ApplicationController
 
    def index
      client = Yelp::Client.new
-     request = Location.new(
-            :term => "restaurant, mexican",
-            :city => "33498")
-     response = client.search(request)
+     @request = Location.new(
+            :term => "restaurant",
+            :city => params[:city])
+     response = client.search(@request)
      @businesses = response["businesses"]
    end
 end

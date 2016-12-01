@@ -1,8 +1,17 @@
+<%= form_tag(root_path, :method => "get") do %>
+  <%= label_tag(:city, "City:") %>
+  <%= text_field_tag(:city) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
 <% @businesses.each do |business| %>
   <div class="panel panel-default">
     <div class="panel-body">
-      <h3><%= business["name"] %></h3>
-      <%= image_tag business["image_url"] %>
+      <h3 class="text-center"><%= business["name"] %></h3>
+      <%= image_tag business["image_url"], class: "img-circle block-center" %>
+      <h6 class="text-right">
+        <%= business["categories"].first.first %>
+      </h6>
     </div>
   </div>
 <% end %>
