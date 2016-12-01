@@ -4,14 +4,18 @@
   <%= submit_tag("Search") %>
 <% end %>
 
-<% @businesses.each do |business| %>
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <h3 class="text-center"><%= business["name"] %></h3>
-      <%= image_tag business["image_url"], class: "img-circle block-center" %>
-      <h6 class="text-right">
-        <%= business["categories"].first.first %>
-      </h6>
+<% if @business == nil %>
+  <h1>Find restaurants in your desired city.</h1>
+<% else %>
+  <% @businesses.each do |business| %>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <h3 class="text-center"><%= business["name"] %></h3>
+        <%= image_tag business["image_url"], class: "img-circle block-center" %>
+        <h6 class="text-right">
+          <%= business["categories"].first.first %>
+        </h6>
+      </div>
     </div>
-  </div>
+  <% end %>
 <% end %>
