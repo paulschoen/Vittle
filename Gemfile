@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'rails-erd'
 gem 'geocoder'
 # Adding Bootstrap to rails app
 gem 'httparty'
