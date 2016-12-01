@@ -1,20 +1,33 @@
 <%= form_tag(root_path, :method => "get") do %>
-  <%= label_tag(:city, "City:") %>
+  <%= label_tag(:city, "Location:") %>
   <%= text_field_tag(:city) %>
   <%= submit_tag("Search") %>
 <% end %>
 
-<% if @business == nil %>
-  <h1>Find restaurants in your desired city.</h1>
+<% if @businesses == nil %>
+  <p>Type in a city, address or zip you twot</p>
 <% else %>
   <% @businesses.each do |business| %>
     <div class="panel panel-default">
       <div class="panel-body">
-        <h3 class="text-center"><%= business["name"] %></h3>
-        <%= image_tag business["image_url"], class: "img-circle block-center" %>
-        <h6 class="text-right">
-          <%= business["categories"].first.first %>
-        </h6>
+        <% if business["name"] == nil %>
+          <% redirect root_path %>
+        <% else %>
+          <h3 class="text-center"><%= business["name"] %></h3>
+        <% end %>
+        <% if business["image_url"] == nil %>
+          <% image_tag "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-breed-landing-hero.ashx"%>
+        <% else %>
+          <%= image_tag business["image_url"], class: "img-circle block-center" %>
+          <h6 class="text-right">
+            <%= business["categories"].first.first %>
+          </h6>
+        <% end %>
+        <% if business["location"] == nil %>
+          <h6>No address provided</h6>
+        <% else %>
+          <a href="http://maps.google.com/?q=<%= business["location"]["display_address"].join(" ") %>"><%= business["location"]["display_address"].join(" ") %></a>
+        <% end %>
       </div>
     </div>
   <% end %>
