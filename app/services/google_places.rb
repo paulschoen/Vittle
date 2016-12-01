@@ -8,9 +8,4 @@ class RestaurantCultvator
     @body = JSON.parse(response.body)["results"]
     # JSON.parse(response.body)["results"].first["icon"]
   end
-  def picture
-    pic_url = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=" +
-    "#{@body['photos']['photo_reference']}"
-    pic_url
-  end
 end

@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'yelpster'
 gem 'rails-erd'
 gem 'geocoder'
 # Adding Bootstrap to rails app

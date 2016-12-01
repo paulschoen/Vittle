@@ -1,16 +1,8 @@
-<h1 class="text-center">Restaurants</h1>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search Near", :name => nil %>
-    <%= @location %>
-<div class="container">
-    <% @area.each do |place| %>
-    <div class="panel panel-default">
-        <div class="panel-body">
-          <h3 class="text-center">
-            <%= place["name"] %>
-          </h3>
-          <%= image_tag ("https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference="+"#{place['photos'].first['photo_reference']}&key="+"AIzaSyCnYXPQPPEJocAuWT21VvAJkS5ucXGOMwg"), class: "center-block" %>
-        </div>
+<% @businesses.each do |business| %>
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <h3><%= business["name"] %></h3>
+      <%= image_tag business["image_url"] %>
     </div>
-    <% end %>
-</div>
+  </div>
+<% end %>
