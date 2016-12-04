@@ -8,16 +8,16 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+        <%= javascript_include_tag :defaults %>
+        <%= javascript_include_tag 'rails' %>
+        <script type="text/javascript">
+            $(function () {
+                $("#myModal").modal({show: false});
+        </script>
     </head>
 
     <body>
-        <p class="notice"><%= notice %></p>
-        <p class="alert"><%= alert %></p>
 
-        <ul class="hmenu">
-            <%= render 'devise/menu/registration_items' %>
-            <%= render 'devise/menu/login_items' %>
-        </ul>
         <%= yield %>
     </body>
 </html>

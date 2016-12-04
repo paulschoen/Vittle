@@ -13,4 +13,8 @@ class HomeController < ApplicationController
      @businesses = response["businesses"]
 
    end
+
+   def create
+     #code
+   end
 end

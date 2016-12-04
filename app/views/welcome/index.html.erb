@@ -1,6 +1,42 @@
 <div id="video">
-  <div class="hidden">
-    <h1 class="title white text-center">Welcome to</h1>
-    <h1 class="title white text-center">Vittle</h1>
+    <% if user_signed_in? %>
+    <div class="text-center">
+        <div class="hidden">
+            <h1 class="title text-center">Welcome Back</h1>
+            <h1 class="title2 text-center"><%= current_user.first_name %></h1>
+        </div>
+        <%= button_to "Dashboard", home_index_path, {method: :get,class: 'login-btn text-center'}  %>
+    </div>
+<% else %>
+    <div class="text-center">
+        <div class="hidden">
+            <h1 class="title text-center">Welcome To</h1>
+            <h1 class="title2 text-center">Vittle</h1>
+        </div>
+        <button class='login-btn  text-center' data-toggle="modal" data-target="#signUp" type="button" name="button">Sign Up</button>
+
+        <button class='login-btn2 row text-center' data-toggle="modal" data-target="#logIn" type="button" name="button">Log In</button>
+
+
+
+    </div>
+    <% end %>
+</div>
+<div class="signup">
+  <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <%= render "sign_up_modal" %>
+          </div>
+      </div>
+  </div>
+</div>
+<div class="login">
+  <div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <%= render "login_modal" %>
+          </div>
+      </div>
   </div>
 </div>

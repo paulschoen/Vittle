@@ -13,8 +13,52 @@
 */
 @import "bootstrap-sprockets";
 @import "bootstrap";
-.title{
-  font-family: 'Pacifico', cursive;
-  font-size: 4em;
-  color: white;
+
+#tubular-player {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+.title {
+    font-family: 'Pacifico', cursive;
+    font-size: 4em;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2em;
+    margin-top: 0;
+}
+
+.title2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 4em;
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-btn {
+    font-family: 'Pacifico', cursive;
+    font-size: 3em;
+    color: white;
+    border: 5px solid white;
+    background: transparent;
+    border-radius: 5%;
+    margin-top: 3em;
+    justify-content: center;
+    align-items: center;
+}
+.login-btn2 {
+    font-family: 'Pacifico', cursive;
+    font-size: 2em;
+    color: white;
+    border: 5px solid white;
+    background: transparent;
+    border-radius: 5%;
+    margin-top: 10px;
+    justify-content: center;
+    align-items: center;
 }
