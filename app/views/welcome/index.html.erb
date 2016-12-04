@@ -1,7 +1,11 @@
-<div id="video">
+<div class="hidden">
+
+    <div class="overflow">
+        <%= video_tag "beach.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true %>
+    </div>
     <% if user_signed_in? %>
     <div class="text-center">
-        <div class="hidden">
+        <div class>
             <h1 class="title text-center">Welcome Back</h1>
             <h1 class="title2 text-center"><%= current_user.first_name %></h1>
         </div>
@@ -9,34 +13,35 @@
     </div>
 <% else %>
     <div class="text-center">
-        <div class="hidden">
+        <div>
+          
             <h1 class="title text-center">Welcome To</h1>
             <h1 class="title2 text-center">Vittle</h1>
         </div>
-        <button class='login-btn  text-center' data-toggle="modal" data-target="#signUp" type="button" name="button">Sign Up</button>
-
-        <button class='login-btn2 row text-center' data-toggle="modal" data-target="#logIn" type="button" name="button">Log In</button>
-
-
+        <div class="btn-group-vertical" role="group" aria-label="...">
+            <button type="button" class='login-btn  text-center' data-toggle="modal" data-target="#signUp" type="button" name="button">Sign Up</button>
+            <button type="button" class='login-btn text-center' data-toggle="modal" data-target="#logIn" type="button" name="button">Log In</button>
+        </div>
 
     </div>
     <% end %>
 </div>
 <div class="signup">
-  <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <%= render "sign_up_modal" %>
-          </div>
-      </div>
-  </div>
+    <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <%= render "sign_up_modal" %>
+            </div>
+        </div>
+    </div>
 </div>
 <div class="login">
-  <div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-      <div class="modal-dialog" role="document">
-          <div class="modal-content">
-              <%= render "login_modal" %>
-          </div>
-      </div>
-  </div>
+    <div class="modal fade" id="logIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <%= render "login_modal" %>
+            </div>
+        </div>
+    </div>
+
 </div>

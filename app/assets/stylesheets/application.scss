@@ -14,14 +14,37 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-#tubular-player {
+video#fullscreen-bg {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    background: url(polina.jpg) no-repeat;
+    background-size: cover;
     -webkit-filter: blur(5px);
     -moz-filter: blur(5px);
     -o-filter: blur(5px);
     -ms-filter: blur(5px);
     filter: blur(5px);
 }
-
+.hamburger{
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
+  color: white;
+  border: 5px solid white;
+  background: transparent;
+  border-radius: 5%;
+  justify-content: center;
+  align-items: center;
+}
 .title {
     font-family: 'Pacifico', cursive;
     font-size: 4em;
@@ -43,17 +66,6 @@
 .login-btn {
     font-family: 'Pacifico', cursive;
     font-size: 3em;
-    color: white;
-    border: 5px solid white;
-    background: transparent;
-    border-radius: 5%;
-    margin-top: 3em;
-    justify-content: center;
-    align-items: center;
-}
-.login-btn2 {
-    font-family: 'Pacifico', cursive;
-    font-size: 2em;
     color: white;
     border: 5px solid white;
     background: transparent;
