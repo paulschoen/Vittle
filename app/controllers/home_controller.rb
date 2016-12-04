@@ -11,5 +11,6 @@ class HomeController < ApplicationController
             :city => params[:city])
      response = client.search(@request)
      @businesses = response["businesses"]
+
    end
 end

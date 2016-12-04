@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Foodle</title>
-    <%= csrf_meta_tags %>
+    <head>
+        <title>Foodle</title>
+        <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  </head>
+        <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-  <body>
-    <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
 
-    <ul class="hmenu">
-      <%= render 'devise/menu/registration_items' %>
-      <%= render 'devise/menu/login_items' %>
-    </ul>
-    <%= yield %>
-  </body>
+    </head>
+
+    <body>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <ul class="hmenu">
+            <%= render 'devise/menu/registration_items' %>
+            <%= render 'devise/menu/login_items' %>
+        </ul>
+        <%= yield %>
+    </body>
 </html>

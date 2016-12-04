@@ -1,0 +1,10 @@
+<%= form_tag(root_path, :method => "get") do %>
+  <%= text_field_tag(:yelp_id) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<% if @business == nil %>
+  <h1>nothing here</h1>
+<% else %>
+  <%= @business["name"] %>
+<% end %>

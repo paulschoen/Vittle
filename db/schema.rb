@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161201034458) do
+ActiveRecord::Schema.define(version: 20161203194952) do
 
   create_table "homes", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -20,12 +20,15 @@ ActiveRecord::Schema.define(version: 20161201034458) do
   create_table "restaurants", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
+    t.string   "yelp_id"
   end
 
   create_table "suggestions", force: :cascade do |t|
     t.text     "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "yelp_id"
   end
 
   create_table "users", force: :cascade do |t|
