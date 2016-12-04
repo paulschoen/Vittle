@@ -1,6 +1,6 @@
 <div class="restaurant-container">
 
-<%= form_tag(root_path, :method => "get") do %>
+<%= form_tag(home_index_path, :method => "get") do %>
   <%= label_tag(:city, "Location:") %>
   <%= text_field_tag(:city) %>
   <%= submit_tag("Search") %>
