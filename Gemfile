@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'yelp', require: 'yelp'
 gem 'yelpster'
 gem 'rails-erd'
 gem 'geocoder'
@@ -49,6 +50,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'rspec-rails', '~> 3.5'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

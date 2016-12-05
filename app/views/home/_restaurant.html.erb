@@ -4,64 +4,66 @@
     <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
 
     <% end %>
-<% if @businesses == nil %>
+    <% if @businesses == nil %>
     <%= image_tag("lilguy.png", :class => "lilguy") %>
 <% else %>
     <% @businesses.each do |business| %>
     <div class="panel panel-default">
-        <div class="panel-body">
-        <% if business["name"] == nil %>
+        <div class="panel-head">
+            <% if business["name"] == nil %>
             <% redirect root_path %>
         <% else %>
-            <h3 class="text-center"><%= business["name"] %></h3>
+            <h3 class="text-center panel-head"><%= business["name"] %></h3>
             <% end %>
-      <div class="row">
-        <% if business["image_url"] == nil %>
-            <% image_tag "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-breed-landing-hero.ashx"%>
-        <% else %>
-            <%= image_tag business["image_url"], class: "img-rounded block-center col-xs-5" %>
-            <% if business["location"]["display_address"] == nil %>
-                <h6>No address provided</h6>
-            <% else %>
-                <a class="text-right col-xs-7" href="http://maps.google.com/?q=<%= business["location"]["display_address"].join(" ") %>">
-                  <% business["location"]["display_address"].each do |line| %>
-                  <p>
-                    <%= line %>
-                  </p>
-                <% end %></a>
-            <% end %>
-      </div>
-            <h6 class="text-right">
-                <%= business["categories"].first.first %>
-            </h6>
-            <% end %>
-        </div>
-        <button type="button" data-toggle="modal" data-target="#myModal">
-            suggestion
-        </button>
-        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title" id="myModalLabel">Suggestion Form</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form action='' method='post'>
-                            <input type="text" name="" value="">
-                        </form>
+            <div class="panel-body">
+                <div class="row">
+                    <% if business["image_url"] == nil %>
+                    <% image_tag "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-breed-landing-hero.ashx"%>
+                <% else %>
+                    <%= image_tag business["image_url"], class: "img-rounded block-center col-xs-5" %>
+                    <% if business["location"]["display_address"] == nil %>
+                    <h6>No address provided</h6>
+                <% else %>
+                    <a class="text-right col-xs-7" href="http://maps.google.com/?q=<%= business["location"]["display_address"].join(" ") %>">
+                        <% business["location"]["display_address"].each do |line| %>
+                        <p>
+                            <%= line %>
+                        </p>
+                        <% end %></a>
+                    <% end %>
+                </div>
+                <h6 class="text-right">
+                    <%= business["categories"].first.first %>
+                </h6>
+                <% end %>
+            </div>
+            <button type="button" data-toggle="modal" data-target="#myModal">
+                suggestion
+            </button>
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel">Suggestion Form</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form action='' method='post'>
+                                <input type="text" name="" value="">
+                            </form>
 
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
                     </div>
                 </div>
             </div>
+          </div>
         </div>
+        <% end %>
+        <% end %>
     </div>
-    <% end %>
-    <% end %>
-</div>
