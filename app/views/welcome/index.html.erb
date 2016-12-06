@@ -1,7 +1,5 @@
 <div class="hidden">
-
-    <div class="overflow">
-        <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true %>
+        <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true, :loop => true %>
     </div>
     <% if user_signed_in? %>
     <div class="text-center">
@@ -43,5 +41,3 @@
             </div>
         </div>
     </div>
-
-</div>

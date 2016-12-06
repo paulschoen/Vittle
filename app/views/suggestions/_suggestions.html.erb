@@ -1,7 +1,8 @@
 <div class="suggestion-container">
   <% @suggestions.each do |suggestion| %>
     <li>
-      <%= suggestion.yelp_id %>
+      <%= suggestion.yelp_id %><br />
+      <%= suggestion.call_yelp %><br><br>
     </li>
   <% end %>
 </div>

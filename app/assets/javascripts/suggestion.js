@@ -9,7 +9,9 @@ function buttonClick() {
             var suggestionBody = $('#suggestion_body').val();
             $.ajax({
                     url: '/suggestions',
-                    method: 'POST'
+                    method: 'POST',
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json"
                 }
             ).done(function() {
             console.log("SUCCESS");

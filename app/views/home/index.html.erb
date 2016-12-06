@@ -1,7 +1,7 @@
 <div class="home-container">
     <ul class="nav nav-tabs">
         <li role="presentation" class="take-all-space-you-can active">
-            <a class="render-restaurant text-center">Restaurants</a>
+            <a class="render-restaurants text-center">Restaurants</a>
         </li>
         <li role="presentation" class="take-all-space-you-can">
             <a class="render-suggestions text-center">Suggestions</a>
@@ -12,3 +12,22 @@
         <%=  render :partial => "restaurant"  %>
     </div>
 </div>
+
+<script type="text/javascript">
+$(function() {
+    renderSuggestions();
+    renderRestaurants();
+});
+
+function renderRestaurants() {
+  $(".render-restaurants").click(function() {
+    $(".partial-load").replaceWith("<%= escape_javascript(render('restaurant', restaurant: @restaurants))%>");
+  });
+}
+
+function renderSuggestions() {
+  $(".render-suggestions").click(function() {
+    $(".partial-load").replaceWith("<%= escape_javascript(render('suggestions/suggestions', suggestions: @suggestions))%>");
+  });
+}
+</script>

@@ -12,6 +12,7 @@ class HomeController < ApplicationController
      response = client.search(@request)
      @businesses = response["businesses"]
      @suggestion = Suggestion.new
+     @suggestions = Suggestion.all
      @users_name = "#{current_user.first_name} #{current_user.last_name}"
    end
 
