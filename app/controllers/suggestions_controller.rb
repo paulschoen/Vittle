@@ -8,7 +8,7 @@ class SuggestionsController < ApplicationController
 
     def create
         @suggestion = Suggestion.new(suggestion_params)
-
+        @users_name = "#{current_user.first_name} #{current_user.last_name}"
         @suggestion.save
 
         redirect_back(fallback_location: home_index_path)
@@ -17,6 +17,6 @@ class SuggestionsController < ApplicationController
     private
 
     def suggestion_params
-        params.require(:suggestion).permit(:yelp_id, :body)
+        params.require(:suggestion).permit(:yelp_id, :body, :users_name)
     end
 end

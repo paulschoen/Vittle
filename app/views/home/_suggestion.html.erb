@@ -2,6 +2,7 @@
   <%= f.label :body %>
   <%= f.text_area :body, autofocus: true %>
   <%= f.text_field :yelp_id, value: business["id"] %>
+  <%= f.text_field :users_name, value: @users_name %>
   <%= f.submit 'Add a Suggestion', id: 'suggestion-submit', data: { 'business-id' => business['id'] } %>
 
 <% end %>
