@@ -20,6 +20,20 @@
   }
 }
 
+.form_for{
+  text-align: center;
+  opacity: 0.9;
+  color: black;
+  height: 100%;
+}
+
+.overflow {
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: calc(100% + 0px);
+  height: calc(100% + 0px);
+}
 
 body{
   font-family: 'Josefin Sans', sans-serif;
@@ -44,11 +58,11 @@ video#fullscreen-bg {
     transform: translateX(-50%) translateY(-50%);
     background: url(polina.jpg) no-repeat;
     background-size: cover;
-    -webkit-filter: blur(5px);
-    -moz-filter: blur(5px);
-    -o-filter: blur(5px);
-    -ms-filter: blur(5px);
-    filter: blur(5px);
+    // -webkit-filter: blur(1px);
+    // -moz-filter: blur(1px);
+    // -o-filter: blur(1px);
+    // -ms-filter: blur(1px);
+    // filter: blur(1px);
 }
 .hamburger{
   font-family: 'Pacifico', cursive;
