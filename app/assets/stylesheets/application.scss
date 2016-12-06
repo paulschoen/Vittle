@@ -18,6 +18,10 @@ body{
   font-family: 'Josefin Sans', sans-serif;
 };
 
+input{
+  border: 2px solid gray;
+}
+
 video#fullscreen-bg {
     position: fixed;
     top: 50%;

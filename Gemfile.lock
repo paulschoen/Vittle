@@ -81,6 +81,7 @@ GEM
     geocoder (1.4.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
+    hirb (0.7.3)
     httparty (0.14.0)
       multi_xml (>= 0.5.2)
     i18n (0.7.0)
@@ -229,6 +230,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   geocoder
+  hirb
   httparty
   jbuilder (~> 2.5)
   jquery-rails

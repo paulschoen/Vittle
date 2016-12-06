@@ -1,0 +1,7 @@
+<%= form_for(suggestion, remote: true) do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body, autofocus: true %>
+  <%= f.text_field :yelp_id, value: business["id"] %>
+  <%= f.submit 'Add a Suggestion', id: 'suggestion-submit', data: { 'business-id' => business['id'] } %>
+
+<% end %>

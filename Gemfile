@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-
+gem 'hirb'
 gem 'yelp', require: 'yelp'
 gem 'yelpster'
 gem 'rails-erd'

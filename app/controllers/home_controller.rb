@@ -11,7 +11,8 @@ class HomeController < ApplicationController
             :city => params[:city])
      response = client.search(@request)
      @businesses = response["businesses"]
-
+     @words = ["city", "zipcode","address"]
+     @suggestion = Suggestion.new
    end
 
    def create
