@@ -6,7 +6,7 @@
 
     <% end %>
     <% if @businesses == nil %>
-    <%= image_tag("lilguy.png", :class => "lilguy") %>
+    <%= image_tag("lilguy.gif", :class => "lilguy") %>
 <% else %>
     <% @businesses.each_with_index do |business, index| %>
     <a data-toggle="modal" data-target="#my<%= business[" id"] %>">

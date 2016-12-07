@@ -1,9 +1,0 @@
-$(function() {
-    renderSuggestions();
-});
-
-function renderSuggestions() {
-  $(".render-suggestions").click(function() {
-    $(".partial-load").replaceWith("<%= escape_javascript(render 'suggestion')%>");
-  });
-}
