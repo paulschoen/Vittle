@@ -1,9 +1,9 @@
 <div class="home-container">
     <ul class="nav nav-tabs">
-        <li role="presentation" class="take-all-space-you-can active">
+        <li id="rest-tab" role="presentation" class="take-all-space-you-can active">
             <a class="render-restaurants text-center">Restaurants</a>
         </li>
-        <li role="presentation" class="take-all-space-you-can">
+        <li id="sugg-tab" role="presentation" class="take-all-space-you-can">
             <a class="render-suggestions text-center">Suggestions</a>
         </li>
     </ul>
@@ -21,13 +21,17 @@ $(function() {
 
 function renderRestaurants() {
   $(".render-restaurants").click(function() {
-    $(".partial-load").replaceWith("<%= escape_javascript(render('restaurant', restaurant: @restaurants))%>");
+    $(".suggestion-container").replaceWith("<%= escape_javascript(render('restaurant'))%>");
+    $("#rest-tab").addClass(" active")
+    $('#sugg-tab').removeClass("active")
   });
 }
 
 function renderSuggestions() {
   $(".render-suggestions").click(function() {
-    $(".partial-load").replaceWith("<%= escape_javascript(render('suggestions/suggestions', suggestions: @suggestions))%>");
+    $(".restaurant-container").replaceWith("<%= escape_javascript(render('suggestions/suggestions', suggestions: @suggestions))%>");
+    $("#sugg-tab").addClass(" active")
+    $('#rest-tab').removeClass("active")
   });
 }
 </script>

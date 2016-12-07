@@ -1,8 +1,14 @@
 <div class="suggestion-container">
-  <% @suggestions.each do |suggestion| %>
-    <li>
-      <%= suggestion.yelp_id %><br />
-      <%= suggestion.call_yelp %><br><br>
-    </li>
-  <% end %>
+    <% @suggestions.each do |suggestion| %>
+    <div class="panel panel-default">
+        <div class="panel-body">
+        <li>
+            <%= suggestion.yelp_id %><br/>
+        </li>
+        <li>
+            <%= suggestion.call_yelp %><br/>
+        </li>
+    </div>
+</div>
+<% end %>
 </div>
