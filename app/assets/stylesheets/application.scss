@@ -56,7 +56,7 @@ video#fullscreen-bg {
     -moz-transform: translateX(-50%) translateY(-50%);
     -webkit-transform: translateX(-50%) translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
-    background: url(polina.jpg) no-repeat;
+    // background: url(polina.jpg) no-repeat;
     background-size: cover;
     // -webkit-filter: blur(1px);
     // -moz-filter: blur(1px);
@@ -95,6 +95,14 @@ video#fullscreen-bg {
     justify-content: center;
     align-items: center;
 }
+.title3 {
+    font-family: "Arial Black", Gadget, sans-serif;
+    font-size: 1.5em;
+    color: white;
+    justify-content: center;
+    align-items: center;
+    margin: .5em 2em 0em 2em;
+}
 .form-control{
   margin:auto;
 }
@@ -114,4 +122,13 @@ video#fullscreen-bg {
 }
 .text-right{
   padding: 0px;
+}
+
+.intro {
+  background-color: #25011E;
+  padding-top: 1em;
+  margin-top: 18em;
+  // margin-bottom: 0em;
+  text-align: center;
+  // height: 100%;
 }

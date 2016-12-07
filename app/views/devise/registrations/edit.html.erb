@@ -1,11 +1,11 @@
 <div class="overflow">
-    <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true %>
+    <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :loop => true, :size => "320x240", :muted => true %>
 </div>
 <div class="form_for">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <div class="panel panel-default edit-form">
-    <div class="panel-heading text-center"><h3>Update User Information</h3><%= resource_name.to_s.humanize %>
+    <div class="panel-heading text-center"><h3>Update User Information</h3><% resource_name.to_s.humanize %>
     <div class="panel-body">
       <div class="field">
         <%= f.label :email %><br />
@@ -40,11 +40,9 @@
       </div>
     <% end %>
 
-    <h5>Cancel my Account</h5>
+    <p> <h5>No longer interested in delicious food?</h5> <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
-    <p>Unhappy? <%= button_to "Delete Account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-    <%= link_to "Back", :back %>
+    <%= link_to "Back", root_path %>
     </div>
     </div>
 </div>
