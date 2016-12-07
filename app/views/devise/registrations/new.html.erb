@@ -1,9 +1,14 @@
-<h2>Sign up</h2>
+<div class="overflow">
+    <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :loop => true, :size => "320x240", :muted => true %>
+</div>
 
+<div class="form_for">
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
-  <div class="field">
+  <div class="panel panel-default edit-form">
+    <div class="panel-heading text-center"><h3>Sign Up</h3>
+    <div class="panel-body">
+      <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true %>
   </div>
@@ -31,9 +36,16 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
+<p>
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
+</p>
 <% end %>
 
 <%= render "devise/shared/links" %>
+</div>
+</div>
+</div>
+</div>
+</div>

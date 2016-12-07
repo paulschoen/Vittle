@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <div >
   <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true, :loop => true %>
 <% if user_signed_in? %>
@@ -6,19 +5,11 @@
     <div class>
         <h1 class="title text-center">Welcome Back</h1>
         <h1 class="title2 text-center"><%= current_user.first_name %></h1>
-=======
-<div class="">
-        <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true, :loop => true %>
->>>>>>> c19d10c7eb7f0925ce6288fbd5b12bfcbaeca91e
     </div>
     <%= button_to "Dashboard", home_index_path, {method: :get,class: 'login-btn text-center'}  %>
   </div>
   </div>
-<div class="intro">
-
-    <div style="height: 50vh;">
-      <h1 class="title3 text-center"> Foodies and families alike can find flavorful feasts for all palates. Connect with people in your area and suggest local favorites. Not sure what you're looking for? Take a look at our suggestion board! Had a fantastic experience? Share that too! Our focus is to share local restaurants based on user input and experience. </h1>
-    </div>
+    
   <% else %>
     <div class="text-center">
         <div>
@@ -51,5 +42,3 @@
           </div>
       </div>
   </div>
-
-</div>
