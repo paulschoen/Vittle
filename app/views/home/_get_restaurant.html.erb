@@ -1,4 +1,4 @@
-<div class="restaurant-container">
+<div id="restaurant-container" class="restaurant-container">
 
     <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
       <%=  text_field_tag(:city, nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
@@ -11,7 +11,7 @@
     <!-- This is the loop for the API call -->
     <% @businesses.each_with_index do |business, index| %>
     <% @sugs = Suggestion.yelp_id_match(business["id"]) %><!-- This is the loop to match the suggestions with yelp id -->
-    <a data-toggle="modal" data-target="#my<%= business[" id"] %>"
+    <a data-toggle="modal" data-target="#my<%= business[" id"] %>">
         <div class="panel panel-default">
             <div class="panel-head">
                 <% if business["name"] == nil %>
@@ -66,8 +66,7 @@
                 </div>
             </div>
         </div>
-
-    </div>
+      </div>
 
     <div class="modal fade suggestion-modal" id="suggest<%= business['id'] %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

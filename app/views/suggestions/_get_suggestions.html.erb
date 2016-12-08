@@ -1,6 +1,6 @@
 <div id="suggestion-container" class="suggestion-container">
 
-<%= form_for(home_index_path,:class => "input-group", :method => "get") do %>
+<%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
   <%=  text_field_tag(:origin, nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
   <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
 <% end %>

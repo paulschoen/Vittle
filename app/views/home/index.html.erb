@@ -1,9 +1,9 @@
 <div class="home-container">
     <ul class="nav nav-tabs">
-        <li id="rest-tab" role="presentation" class="take-all-space-you-can">
+        <li id="rest-tab" role="presentation" class="take-all-space-you-can <%= 'active' if params[:city] != nil %>">
             <a class="render-restaurants text-center">Restaurants</a>
         </li>
-        <li id="sugg-tab" role="presentation" class="take-all-space-you-can">
+        <li id="sugg-tab" role="presentation" class="take-all-space-you-can <%= 'active' if params[:origin] != nil %>">
             <a class="render-suggestions text-center">Suggestions</a>
         </li>
     </ul>
@@ -11,42 +11,84 @@
     <div class="partial-load"></div>
 </div>
 
+<div id="city" data-city="<%= @city %>"></div>
+<div id="origin" data-city="<%= @origin %>"></div>
+
 <script type="text/javascript">
     $(function () {
         renderSuggestions();
         renderRestaurants();
+        checkSuggestionPartial();
+        checkRestaurantPartial();
     });
 
-    function renderRestaurants() {
-      $(".render-restaurants").click(function () {
-        if ($('.partial-load').children().hasClass("suggestion-container")) {
-                $(".suggestion-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
-                $("#rest-tab").addClass(" active");
-                $('#sugg-tab').removeClass("active");
-        } else {
-          if ($('#restaurant-container').hasClass('restaurant-container')) {
-          $(".restaurant-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
-          } else {
-            $('.partial-load').append("<%= escape_javascript(render('get_restaurant'))%>");
-            $("#rest-tab").addClass(" active")
-          }
-        };
-    }
-  )}
-    function renderSuggestions() {
-      $(".render-suggestions").click(function () {
-        if ($('.partial-load').children().hasClass("restaurant-container")) {
-                $(".restaurant-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+    function checkSuggestionPartial() {
+        var origin = $('#origin').data().origin;
+        if (origin) {
+            if ($('.partial-load').children().hasClass("restaurant-container")) {
+                $("#restaurant-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
                 $("#sugg-tab").addClass(" active");
                 $('#rest-tab').removeClass("active");
-        } else {
-          if ($('#suggestion-container').hasClass('suggestion-container')){
-            $(".suggestion-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
-          } else {
-            $('.partial-load').append("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
-            $("#sugg-tab").addClass(" active");
-          }
-        };
+            } else {
+                if ($('#suggestion-container').hasClass('suggestion-container')) {
+                    $(".suggestion-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+                } else {
+                    $('.partial-load').append("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+                    $("#sugg-tab").addClass(" active");
+                }
+            }
+        }
     }
-  )}
-  </script>
+
+        function checkRestaurantPartial() {
+            var city = $('#city').data().city;
+            if (city) {
+                if ($('.partial-load').children().hasClass("suggestion-container")) {
+                    $(".suggestion-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
+                    $("#rest-tab").addClass(" active");
+                    $('#sugg-tab').removeClass("active");
+                } else {
+                    if ($('#restaurant-container').hasClass('restaurant-container')) {
+                        $(".restaurant-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
+                    } else {
+                        $('.partial-load').append("<%= escape_javascript(render('get_restaurant'))%>");
+                        $("#rest-tab").addClass(" active");
+                    }
+                }
+            }
+        }
+
+        function renderRestaurants() {
+            $(".render-restaurants").click(function () {
+                if ($('.partial-load').children().hasClass("suggestion-container")) {
+                    $(".suggestion-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
+                    $("#rest-tab").addClass(" active");
+                    $('#sugg-tab').removeClass("active");
+                } else {
+                    if ($('#restaurant-container').hasClass('restaurant-container')) {
+                        $(".restaurant-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
+                    } else {
+                        $('.partial-load').append("<%= escape_javascript(render('get_restaurant'))%>");
+                        $("#rest-tab").addClass(" active");
+                    }
+                }
+            });
+        }
+
+        function renderSuggestions() {
+            $(".render-suggestions").click(function () {
+                if ($('.partial-load').children().hasClass("restaurant-container")) {
+                    $("#restaurant-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+                    $("#sugg-tab").addClass(" active");
+                    $('#rest-tab').removeClass("active");
+                } else {
+                    if ($('#suggestion-container').hasClass('suggestion-container')) {
+                        $(".suggestion-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+                    } else {
+                        $('.partial-load').append("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+                        $("#sugg-tab").addClass(" active");
+                    }
+                }
+            });
+        }
+</script>

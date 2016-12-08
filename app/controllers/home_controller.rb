@@ -6,6 +6,8 @@ class HomeController < ApplicationController
     include Yelp::V2::Search::Request
 
     def index
+      @origin = params[:origin]
+      @city = params[:city]
       client = Yelp::Client.new
       @request = Location.new(
           term: 'restaurant',
