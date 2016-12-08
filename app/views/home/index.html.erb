@@ -1,6 +1,6 @@
 <div class="home-container">
     <ul class="nav nav-tabs">
-        <li id="rest-tab" role="presentation" class="take-all-space-you-can active">
+        <li id="rest-tab" role="presentation" class="take-all-space-you-can">
             <a class="render-restaurants text-center">Restaurants</a>
         </li>
         <li id="sugg-tab" role="presentation" class="take-all-space-you-can">
@@ -8,30 +8,45 @@
         </li>
     </ul>
     <%=  %>
-    <div class="partial-load">
-        <%=  render :partial => "restaurant"  %>
-    </div>
+    <div class="partial-load"></div>
 </div>
 
 <script type="text/javascript">
-$(function() {
-    renderSuggestions();
-    renderRestaurants();
-});
+    $(function () {
+        renderSuggestions();
+        renderRestaurants();
+    });
 
-function renderRestaurants() {
-  $(".render-restaurants").click(function() {
-    $(".suggestion-container").replaceWith("<%= escape_javascript(render('restaurant'))%>");
-    $("#rest-tab").addClass(" active")
-    $('#sugg-tab').removeClass("active")
-  });
-}
-
-function renderSuggestions() {
-  $(".render-suggestions").click(function() {
-    $(".restaurant-container").replaceWith("<%= escape_javascript(render('suggestions/suggestions', suggestions: @suggestions))%>");
-    $("#sugg-tab").addClass(" active")
-    $('#rest-tab').removeClass("active")
-  });
-}
-</script>
+    function renderRestaurants() {
+      $(".render-restaurants").click(function () {
+        if ($('.partial-load').children().hasClass("suggestion-container")) {
+                $(".suggestion-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
+                $("#rest-tab").addClass(" active");
+                $('#sugg-tab').removeClass("active");
+        } else {
+          if ($('#restaurant-container').hasClass('restaurant-container')) {
+          $(".restaurant-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
+          } else {
+            $('.partial-load').append("<%= escape_javascript(render('get_restaurant'))%>");
+            $("#rest-tab").addClass(" active")
+          }
+        };
+    }
+  )}
+    function renderSuggestions() {
+      $(".render-suggestions").click(function () {
+        if ($('.partial-load').children().hasClass("restaurant-container")) {
+                $(".restaurant-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+                $("#sugg-tab").addClass(" active");
+                $('#rest-tab').removeClass("active");
+        } else {
+          if ($('#suggestion-container').hasClass('suggestion-container')){
+            $(".suggestion-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+          } else {
+            $('.partial-load').append("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
+            $("#sugg-tab").addClass(" active");
+          }
+        };
+    }
+  )}
+  </script>

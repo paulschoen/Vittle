@@ -3,12 +3,11 @@ class SuggestionsController < ApplicationController
 
 
     def index
+        @location_suggestions = Suggestion.in_range(1..10, :origin => params[:origin])
         @suggestions = Suggestion.all
     end
 
     def create
-      # require "pry"
-      # binding.pry
         @suggestion = Suggestion.new(suggestion_params)
         @users_name = "#{current_user.first_name} #{current_user.last_name}"
         @suggestion.save

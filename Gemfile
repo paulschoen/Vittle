@@ -4,7 +4,7 @@ gem 'hirb'
 gem 'yelp', require: 'yelp'
 gem 'yelpster'
 gem 'rails-erd'
-gem 'geocoder'
+gem 'geokit-rails'
 # Adding Bootstrap to rails app
 gem 'httparty'
 gem 'bootstrap-sass', '~> 3.3.6'

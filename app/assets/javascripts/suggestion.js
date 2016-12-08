@@ -19,7 +19,6 @@ function buttonClick() {
         }).fail(function() {
             console.log("FAILURE");
             console.log(arguments);
-        })
-        .success(buttonClick());
+        }).success(buttonClick());
     });
 }
