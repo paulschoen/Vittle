@@ -6,7 +6,7 @@ class HomeController < ApplicationController
     include Yelp::V2::Search::Request
 
     def index
-      @origin = params[:origin]
+      @origin = params["origin"] || "Fort Lauderdale"
       @city = params[:city]
       client = Yelp::Client.new
       city = params[:city]
@@ -19,8 +19,7 @@ class HomeController < ApplicationController
         @suggestion = Suggestion.new
         @suggestions = Suggestion.all
         @users_name = "#{current_user.first_name} #{current_user.last_name}"
-        @origin = params[:origin] || "Miami"
-        @location_suggestions = Suggestion.in_range(1..15, origin: @origin)
+        @location_suggestions = Suggestion.within(5, :origin=>@origin)
         @users_city = "#{current_user.city}"
     end
 

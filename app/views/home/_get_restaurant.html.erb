@@ -52,15 +52,18 @@
                 <div class="panel-body">
                     <% @sugs.each do |sug| %>
                     <div class="panel panel-default">
-                        <div class="panel-head">
-                            <h1>
-                                <%= sug.users_name %>
-                                says you gotta try the tacos
-                            </h1>
-                            <div class="panel-body">
-                                <%= sug.body %>
-                            </div>
-                        </div>
+                      <div class="panel-head">
+                          <h3 id="sug-user-name"><%= sug.users_name %></h3>
+                          <h4 id="sig-users-city">
+                            From:  <%= sug.users_city %></h4>
+                          <p id="sug-menu-item">
+                            Recommends:  <%= sug.menu_item %>
+                          </p>
+                          <p id="sug-body">
+                            Heres more he has to say: <br />
+                            <%= sug.body %>
+                          </p>
+                      </div>
                     </div>
                     <% end %>
                 </div>
