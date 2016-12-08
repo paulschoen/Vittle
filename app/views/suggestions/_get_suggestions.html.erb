@@ -12,9 +12,8 @@
       <div class="panel panel-default">
         <div class="panel-head">
             <h3><%= yelp_response["name"] %></h3>
-            <h4 id="sig-rest-name"><%= yelp_response["name"] %></h3>
-            <h3 id="sug-user-name"><%= suggestion.users_name %>
-              From:  <%= suggestion.users_city %></h4>
+            <h4 id="sug-user-name"><%= suggestion.users_name %></h4>
+              <h4>From:  <%= suggestion.users_city %></h4>
             <p id="sug-menu-item">
               Favorite Item on the Menu:  <%= suggestion.menu_item %>
             </p>
