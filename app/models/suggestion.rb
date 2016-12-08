@@ -22,6 +22,6 @@ class Suggestion < ApplicationRecord
     private
 
     def geo_address
-      return false if latitude.blank? || longitude.blank?
+      return false if self.latitude.blank? || self.longitude.blank?
     end
 end

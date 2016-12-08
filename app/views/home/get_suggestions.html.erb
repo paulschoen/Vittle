@@ -1,12 +1,15 @@
 <div id="suggestion-container" class="suggestion-container">
 
-<%= form_for('/get_suggestions',:class => "input-group", :method => "get") do %>
+<%= form_tag('get_suggestions',:class => "input-group", :method => "get") do %>
   <%=  text_field_tag(:origin, nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
   <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
 <% end %>
   <% if @location_suggestions == nil %>
     <%= image_tag("lilguy.gif", :class => "lilguy") %>
   <% else %>
+    <div>
+      <h2>Showing suggestions near <%= @origin %></h2>
+    </div>
       <% @location_suggestions.each do |suggestion| %>
       <div class="panel panel-default">
           <div class="panel-head">
