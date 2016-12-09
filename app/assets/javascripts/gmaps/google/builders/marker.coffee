@@ -79,7 +79,7 @@ class @Gmaps.Google.Builders.Marker extends Gmaps.Objects.BaseBuilder
       size:       new(@primitives().size)(@args[picture_name].width, @args[picture_name].height)
       scaledSize: null
       origin:     null
-    }
+}
 
   _createImageAnchorPosition : (anchorLocation) ->
     return null unless _.isArray anchorLocation

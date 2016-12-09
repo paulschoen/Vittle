@@ -12,13 +12,13 @@ function buttonClick() {
                     method: 'POST',
                     contentType: "application/json; charset=utf-8",
                     dataType: "json"
-                }
+            }
             ).done(function() {
             console.log("SUCCESS");
             console.log(arguments);
-        }).fail(function() {
+    }).fail(function() {
             console.log("FAILURE");
             console.log(arguments);
-        }).success(buttonClick());
-    });
+    }).success(buttonClick());
+});
 }
