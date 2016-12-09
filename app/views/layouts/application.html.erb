@@ -8,36 +8,37 @@
         <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
         <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
-        <%#= javascript_include_tag :defaults %>
-        <%#= javascript_include_tag 'rails' %>
-        <link href="https://fonts.googleapis.com/css?family=Josefin+Sans" rel="stylesheet">
-
+        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['google_geocode'] %>&callback=initMap">
+        </script>
+        <script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"></script>
     </head>
 
     <body>
-      <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
-  <div class="container">
-      <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-          </button>
-      </div>
+        <nav class="navbar-inverse navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button id="nav-button" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <ul class="nav navbar-nav">
-            <li>
-              <%= link_to 'Welcome Page', root_path %>
-            </li>
-            <%= render 'devise/menu/registration_items' %>
-            <%= render 'devise/menu/login_items' %>
-          </ul>
-      </div>
-  </div>
-</nav>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <%= link_to 'Welcome Page', root_path %>
+                        </li>
+                        <%= render 'devise/menu/registration_items' %>
+                        <%= render 'devise/menu/login_items' %>
+                    </ul>
+                </div>
+            </div>
+        </nav>
         <%= yield %>
     </body>
 </html>
