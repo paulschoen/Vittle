@@ -2,6 +2,10 @@
 
     <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
     <%=  text_field_tag(:city, nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
+    <button id="rest-params" type="button" class="btn btn-default">
+        R
+    </button>
+
     <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
 
     <% end %>
@@ -22,7 +26,7 @@
                 <div class="row">
                     <div class="col-xs-5">
                         <div class="row">
-                          <% if business["image_url"] == nil %>
+                            <% if business["image_url"] == nil %>
                             <% image_tag "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-breed-landing-hero.ashx"%>
                         <% else %>
                             <%= image_tag business["image_url"], class: "img-thumbnail rest-thumbnail item" %>
@@ -38,15 +42,16 @@
                         </div>
                     </div>
                     <div class="container">
-                      <div class="row">
-                        <div class="col-xs-offset-7 col-xs-s5">
-                          <a class="text-right" href="tel:+<%= business['phone'] %>"><%= business['display_phone'] %>    <span class="glyphicon glyphicon-phone"></span></a>
+                        <div class="row">
+                            <div class="col-xs-offset-7 col-xs-s5">
+                                <a class="text-right" href="tel:+<%= business['phone'] %>"><%= business['display_phone'] %>
+                                    <span class="glyphicon glyphicon-phone"></span>
+                                </a>
+                            </div>
                         </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-xs-offset-7 col-xs-s5">
+                        <div class="row">
+                            <div class="col-xs-offset-7 col-xs-s5"></div>
                         </div>
-                      </div>
                     </div>
                 </div>
                 <% end %>
@@ -73,29 +78,29 @@
                         <!-- Google Maps -->
                         <div class="panel panel-default">
                             <div class="panel-body">
-                              <div class="container">
-                                <div class="row">
-                                  <a href="https://www.google.com/maps/dir//<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>/">
-                                      <img
-                                          class="rounded img-responsive"
-                                          src="http://maps.googleapis.com/maps/api/staticmap?center=<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>&zoom=17&scale=false&size=300x300&maptype=roadmap&format=png&visual_refresh=true&markers=icon:http://i.imgur.com/svyFpfv.png%7Cshadow:true%7C25.7650461623728,+-80.2514094779099"
-                                          alt="Google Map of 25.7650461623728, -80.2514094779099">
-                                  </a>
+                                <div class="container">
+                                    <div class="row">
+                                        <a href="https://www.google.com/maps/dir//<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>/">
+                                            <img
+                                                class="rounded img-responsive"
+                                                src="http://maps.googleapis.com/maps/api/staticmap?center=<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>&zoom=17&scale=false&size=300x300&maptype=roadmap&format=png&visual_refresh=true&markers=icon:http://i.imgur.com/svyFpfv.png%7Cshadow:true%7C25.7650461623728,+-80.2514094779099"
+                                                alt="Google Map of 25.7650461623728, -80.2514094779099">
+                                        </a>
+                                    </div>
                                 </div>
-                              </div>
-                              <a href="https://www.google.com/maps/dir//<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>/">
-                                <div class="row">
-                                  <div class="col-xs-10">
-                                    <li class="address">
-                                      <% business["location"]["display_address"].each do |line| %>
-                                      <%= line %>
-                                      <% end %>
-                                    </li>
-                                  </div>
-                                  <div class="col-xs-2 text-center">
-                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                  </div>
-                              </div>
+                                <a href="https://www.google.com/maps/dir//<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>/">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                        <li class="address">
+                                            <% business["location"]["display_address"].each do |line| %>
+                                            <%= line %>
+                                            <% end %>
+                                        </li>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </div>
+                                </div>
                             </a>
                         </div>
                     </div>
