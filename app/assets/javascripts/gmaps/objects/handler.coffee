@@ -122,7 +122,7 @@ class @Gmaps.Objects.Handler
       clusterer:
         maxZoom:  5
         gridSize: 50
-    }
+}
 
   _builder: (name)->
     name = @_capitalize(name)
