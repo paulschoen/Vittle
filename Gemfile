@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'gmaps4rails'
 gem 'hirb'
 gem 'yelp', require: 'yelp'
 gem 'yelpster'
