@@ -1,6 +1,11 @@
+<div class="form_for">
+  <div class="panel panel-default edit-form">
+    <div class="panel-heading text-center">
+      <div class="panel-body">
+        <div class="field">
 <%= form_for(suggestion, remote: true) do |f| %>
   <%= f.label :body %>
-  <%= f.text_area :body, autofocus: true %>
+  <%= f.text_area :body, autofocus: true %><br>
   <%= f.label :menu_item %>
   <%= f.text_field :menu_item %>
   <%= f.hidden_field :yelp_id, value: business["id"] %>
@@ -8,5 +13,10 @@
   <%= f.hidden_field :latitude, value: business["location"]["coordinate"]["latitude"] %>
   <%= f.hidden_field :longitude, value: business["location"]["coordinate"]["longitude"] %>
   <%= f.hidden_field :users_name, value: @users_name %>
-  <%= f.submit 'Add a Suggestion', id: 'suggestion-submit' %>
+  <%= f.submit 'Add a Suggestion', id: 'suggestion-submit' %><br>
 <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
