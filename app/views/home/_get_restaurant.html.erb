@@ -2,10 +2,6 @@
 
     <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
     <%=  text_field_tag(:city, nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
-    <button id="rest-params" type="button" class="btn btn-default">
-        R
-    </button>
-
     <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
 
     <% end %>
