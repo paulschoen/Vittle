@@ -5039,10 +5039,11 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .nav-tabs > li > a {
-    margin-right: 2px;
+    margin-right: 0px;
     line-height: 1.42857143;
     border: 1px solid transparent;
-    border-radius: 4px 4px 0 0;
+    border-radius: 0;
+    background-color: #1c9c61;
 }
 
 .nav-tabs > li > a:hover {
@@ -5053,10 +5054,12 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav-tabs > li.active > a:focus,
 .nav-tabs > li.active > a:hover {
     color: #2c3e50;
-    background-color: #ffffff;
-    border: 1px solid #ecf0f1;
+    background-color: #15d17c;
+    border: 1px solid #15d17c;
     border-bottom-color: transparent;
     cursor: default;
+    border-radius: 0%;
+    color:white;
 }
 
 .nav-tabs.nav-justified {
@@ -8651,6 +8654,7 @@ video#fullscreen-bg {
 
 .take-all-space-you-can {
     width: 50%;
+    margin: 0px;
 }
 .text-right {
     padding: 0;
@@ -8813,3 +8817,41 @@ div.vittle-logo > img{
 	position:relative;
 	top:1px;
 }
+
+li.active > a{
+  background-color: #15d17c;
+}
+.render-suggestions{
+  margin: auto;
+}
+// Log In
+.form input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #4CAF50;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+}
+.form-control{
+  margin: 0.5em;
+  padding: auto 0.25;
+}
+// END OF LOGIN
