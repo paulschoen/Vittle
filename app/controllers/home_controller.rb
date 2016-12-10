@@ -10,7 +10,7 @@ class HomeController < ApplicationController
       client = Yelp::Client.new
       @request = Location.new(
           term: 'restaurant',
-          city: "#{@lat}"
+          city: @city
       )
       response = client.search(@request)
       @businesses = response['businesses']
