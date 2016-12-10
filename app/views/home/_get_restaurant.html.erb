@@ -5,8 +5,8 @@
     <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
 
     <% end %>
-    <% if @businesses == nil %>
-    <%= image_tag("lilguy.gif", :class => "lilguy") %>
+  <% if @businesses == nil %>
+      <%= image_tag("lilguy.gif", :class => "lilguy") %>
 <% else %>
     <!-- This is the loop for the API call -->
     <% @businesses.each_with_index do |business, index| %>
@@ -34,7 +34,7 @@
                         </div>
                         <div class="row">
                             <h6 class="text-center">
-                              <%= @lat %>
+                              <%= @test %>
                                 <%= business["categories"].first.first %>
                             </h6>
                         </div>

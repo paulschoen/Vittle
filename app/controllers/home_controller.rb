@@ -4,6 +4,7 @@ class HomeController < ApplicationController
 
     include Yelp::V2::Search::Request
     def index
+      @test = request.location.methods
       @lat = request.location.city
       @origin = params["origin"] || @lat
       @city = params[:city] || @lat

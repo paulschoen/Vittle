@@ -11,7 +11,6 @@ function restParamClick() {
 }
 function locParamClick() {
   $('.loc-params').click(function(){
-
   }
 );
 }
