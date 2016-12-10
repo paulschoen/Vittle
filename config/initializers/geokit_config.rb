@@ -1,4 +1,5 @@
 # These defaults are used in Geokit::Mappable.distance_to and acts_as_mappable
+
 Geokit::default_units = :miles # others :kms, :nms, :meters
 Geokit::default_formula = :sphere
 
@@ -75,7 +76,7 @@ Geokit::Geocoders::GoogleGeocoder.api_key = ENV['google_geocode']
 
 # require "external_geocoder.rb"
 # Please see the section "writing your own geocoders" for more information.
-# Geokit::Geocoders::external_key = 'REPLACE_WITH_YOUR_API_KEY'
+# Geokit::Geocoders::external_key = ENV['google_geocode']
 
 # This is the order in which the geocoders are called in a failover scenario
 # If you only want to use a single geocoder, put a single symbol in the array.
@@ -83,11 +84,11 @@ Geokit::Geocoders::GoogleGeocoder.api_key = ENV['google_geocode']
 # Be aware that there are Terms of Use restrictions on how you can use the
 # various geocoders.  Make sure you read up on relevant Terms of Use for each
 # geocoder you are going to use.
-Geokit::Geocoders::provider_order = [:google]
+Geokit::Geocoders::provider_order = [:google, :us, :ip, :geo_plugin]
 
 # The IP provider order. Valid symbols are :ip,:geo_plugin.
 # As before, make sure you read up on relevant Terms of Use for each.
-Geokit::Geocoders::ip_provider_order = [:external,:geo_plugin,:ip]
+Geokit::Geocoders::provider_order = [:external,:geo_plugin,:ip]
 
 # Disable HTTPS globally.  This option can also be set on individual
 # geocoder classes.
