@@ -6,11 +6,11 @@ class HomeController < ApplicationController
     def index
       @lat = request.location.city
       @origin = params["origin"] || @lat
-      @city = params[:city]
+      @city = params[:city] || @lat
       client = Yelp::Client.new
       @request = Location.new(
           term: 'restaurant',
-          city: '62.200.40.192'
+          city: "#{@lat}"
       )
       response = client.search(@request)
       @businesses = response['businesses']
