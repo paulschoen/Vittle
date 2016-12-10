@@ -1,10 +1,25 @@
 <div id="restaurant-container" class="restaurant-container">
 
+<div class="container">
+  <div class="row">
+    <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
+    <%=  hidden_field(:city, nil, value: @lat, class: 'form-control') %>
+    <span class="input-group-btn"><%= submit_tag("My Location", class: "btn col-xs-12") %></span>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
     <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
     <%=  text_field_tag(:city, nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
     <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
-
     <% end %>
+  </div>
+</div>
+
+
+
+
   <% if @businesses == nil %>
       <%= image_tag("lilguy.gif", :class => "lilguy") %>
 <% else %>
