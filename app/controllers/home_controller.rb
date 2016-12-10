@@ -4,9 +4,8 @@ class HomeController < ApplicationController
 
     include Yelp::V2::Search::Request
     def index
-      @lat = Geokit::Geocoders::IpGeocoder.geocode("#{request.location.ip}")
-      @lon = Geokit::Geocoders::IpGeocoder.geocode('50.244.134.51')
-      @origin = params["origin"] || "Fort Lauderdale"
+      @lat = request.location.city
+      @origin = params["origin"] || @lat
       @city = params[:city]
       client = Yelp::Client.new
       @request = Location.new(
