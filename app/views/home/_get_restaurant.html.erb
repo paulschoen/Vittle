@@ -12,6 +12,7 @@
     <% @businesses.each_with_index do |business, index| %>
     <% @sugs = Suggestion.yelp_id_match(business["id"]) %>
     <!-- This is the loop to match the suggestions with yelp id -->
+
     <div class="panel rest-panel panel-default">
         <div class="panel-head">
             <div class="panel-title">
@@ -33,6 +34,7 @@
                         </div>
                         <div class="row">
                             <h6 class="text-center">
+                              <%= @lat %>
                                 <%= business["categories"].first.first %>
                             </h6>
                         </div>

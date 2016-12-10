@@ -1,4 +1,5 @@
 class Home < ApplicationRecord
+  
 
   def get_lat
     self["location"]["coordinate"]["longitude"]

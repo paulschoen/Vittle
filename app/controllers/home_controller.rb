@@ -1,11 +1,10 @@
-require_dependency 'google_places'
-
 class HomeController < ApplicationController
     before_action :authenticate_user!
 
     include Yelp::V2::Search::Request
-
     def index
+      @lat = Geokit::Geocoders::IpGeocoder.geocode('50.244.134.51').latitude
+      @lon = Geokit::Geocoders::IpGeocoder.geocode('50.244.134.51')
       @origin = params["origin"] || "Fort Lauderdale"
       @city = params[:city]
       client = Yelp::Client.new
