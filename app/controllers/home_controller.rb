@@ -7,12 +7,11 @@ class HomeController < ApplicationController
 
     def index
       @origin = params["origin"] || "Fort Lauderdale"
-      term = params[:term] || 'restaurant'
-      city = params[:city]
+      @city = params[:city]
       client = Yelp::Client.new
       @request = Location.new(
-          term: term,
-          city: city
+          term: 'restaurant',
+          city: @city
       )
       response = client.search(@request)
       @businesses = response['businesses']

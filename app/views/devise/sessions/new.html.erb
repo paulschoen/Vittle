@@ -1,6 +1,5 @@
-<div class="overflow">
-    <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :loop => true, :size => "320x240", :muted => true %>
-</div>
+<%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :loop => true, :size => "320x240", :muted => true %>
+
 
 <div class="form_for">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>

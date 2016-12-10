@@ -1,3 +1,3 @@
-$(window).bind("load", function() {
-   $('div.hidden').fadeIn(2000).removeClass('hidden');
+$(window).on("turbolinks:load", function() {
+    $('div.hidden').fadeIn(2000).removeClass('hidden');
 });
