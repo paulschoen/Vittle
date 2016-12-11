@@ -9,17 +9,30 @@
     </ul>
     <div class="container">
         <div class="row">
-            <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
-            <%=  text_field_tag('origin', nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
-            <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
-            <% end %>
+            <div class="col-xs-12">
+                <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
+                <%=  text_field_tag('origin', nil, placeholder: 'Type in a Zipcode, City or Street Address!', class: 'form-control form-control-V2 col-xs-9') %>
+                <span class="input-group-btn"><%= submit_tag("Go!", class: "btn form-control-V2") %></span>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <%= form_tag(home_index_url, :class => "input-group", :method => "get") do %>
+                <%=  hidden_field('origin', nil, value: '',:name => 'origin', class: 'form-control form-control-V2 col-xs-offset-1', id: "hidden-latfield") %>
+            </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <%= form_tag(home_index_url, :class => "input-group", :method => "get") do %>
-            <%=  hidden_field('origin', nil, value: '',:name => 'origin', class: 'form-control col-xs-offset-1', id: "hidden-latfield") %>
-            <span class="input-group-btn"><%= submit_tag("Use My Location!", class: "myButtonLocation") %></span>
+            <div class="col-xs-12">
+                <div class=" actions text-center">
+                    <%= submit_tag("Use My Location!", class: "myButtonLocation myButtonLocationV2") %>
+                </div>
+            </div>
             <% end %>
         </div>
     </div>

@@ -339,9 +339,6 @@ th {
     }
 }
 @font-face {
-    font-family: 'Glyphicons Halflings';
-    src: url('../fonts/glyphicons-halflings-regular.eot');
-    src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 
 .glyphicon {
@@ -8829,10 +8826,16 @@ li.active > a{
 .sign-log-in-panel{
   margin: 1em;
 }
-// Log In
-.login-inputs{
-
+// Search Area
+.myButtonLocationV2{
+  margin-top: 0.5em
 }
+.form-control-V2{
+  margin-top: 0.5em;
+}
+// END OF SEARCH AREA
+
+// Log In
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
