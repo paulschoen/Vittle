@@ -88,7 +88,7 @@ Geokit::Geocoders::provider_order = [:google, :us, :ip, :geo_plugin]
 
 # The IP provider order. Valid symbols are :ip,:geo_plugin.
 # As before, make sure you read up on relevant Terms of Use for each.
-Geokit::Geocoders::provider_order = [:external,:geo_plugin,:ip]
+# Geokit::Geocoders::provider_order = [:external,:geo_plugin,:ip]
 
 # Disable HTTPS globally.  This option can also be set on individual
 # geocoder classes.
