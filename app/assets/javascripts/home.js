@@ -22,7 +22,7 @@ function success(pos) {
   var crd = pos.coords;
   $('#hidden-latfield').val(crd.latitude + ',' + crd.longitude);
   $('#gps').val("Location Found!");
-  setTimeout(function(){$('#gps').val("Use My Location");}, 1500);
+  setTimeout(function(){$('#gps').val("Use My Location!");}, 1500);
 }
 
 function error(err) {

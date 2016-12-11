@@ -34,16 +34,38 @@
                             </h6>
                         </div>
                     </div>
+                    <div class="col-xs-7">
+                      <div class="modal-body quick-info">
+                        <div class="text-right">
+                          <a class="text-right" href="tel:+<%= business['phone'] %>"><%= business['display_phone'] %>
+                              <span class="glyphicon glyphicon-phone"></span>
+                          </a>
+                        </div>
+                          <div class="rest-info text-right">
+                            <a class="rest-info text-right" href="<%= business["mobile_url"] %>">
+                              Yelp Link   <i class="fa fa-yelp" aria-hidden="true"></i>
+                            </a>
+                          </div>
+                          <div class="rest-info text-right">
+                            <h4>Last Recommended Item</h4><br />
+                            <% if @sugs[-1].menu_item == nil %>
+                            <h5>No Recent Menu Items Recommended :(</h5>
+                            <% else %>
+                            <h5><%= @sugs[-1].menu_item %></h5>
+                            <% end %>
+                          </div>
+                      </div>
                     <div class="container">
                         <div class="row">
-                            <div class="col-xs-offset-7 col-xs-s5">
-                                <a class="text-right" href="tel:+<%= business['phone'] %>"><%= business['display_phone'] %>
-                                    <span class="glyphicon glyphicon-phone"></span>
-                                </a>
+
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xs-offset-7 col-xs-s5"></div>
+                        <div class="container">
+                          <div class="row">
+                              <div class="col-xs-offset-7 col-xs-s5">
+
+                              </div>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -97,11 +119,10 @@
                             </a>
                         </div>
                     </div>
-
-                    <!-- Google Maps -->
+                    <!--End of Google Maps -->
                     <% @sugs.each do |sug| %>
                     <div class="panel panel-default">
-                        <div class="panel-head">
+                        <div class="model-head">
                             <h3 id="sug-user-name"><%= sug.users_name %></h3>
                             <h4 id="sig-users-city">
                                 From:<br/>
