@@ -8567,13 +8567,6 @@ a.list-group-item-danger.active:hover {
     color: black;
 }
 
-.overflow {
-    position: absolute;
-    top: -1px;
-    left: -1px;
-    width: calc(100% + 0px);
-    height: calc(100% + 0px);
-}
 
 body {
     font-family: 'Roboto', sans-serif;
@@ -8807,6 +8800,21 @@ div.vittle-logo > img{
 	text-shadow:0px 1px 0px #2f6627;
   margin: 0.5em 1em;
 }
+.myButtonLocation{
+  background-color:#15d17b;
+	-moz-border-radius:28px;
+	-webkit-border-radius:28px;
+	border-radius:28px;
+	border:1px solid #15d17b;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-size:1em;
+	padding:16px 31px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2f6627;
+  margin: auto;
+}
 .myButton:active {
 	position:relative;
 	top:1px;
@@ -8818,7 +8826,13 @@ li.active > a{
 .render-suggestions{
   margin: auto;
 }
+.sign-log-in-panel{
+  margin: 1em;
+}
 // Log In
+.login-inputs{
+
+}
 .form input {
   font-family: "Roboto", sans-serif;
   outline: 0;
@@ -8846,7 +8860,6 @@ li.active > a{
 }
 .form-control{
   margin: 0.5em;
-  padding: auto 0.25;
 }
 .submitButton{
   padding-top: 0px;

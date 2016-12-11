@@ -9,7 +9,7 @@
             <div class="col-xs-12">
                 <%= devise_error_messages! %>
                 <div class="field">
-                    <%= f.email_field :email, autofocus: true, :class => "form-control", :placeholder => "Email" %>
+                    <%= f.email_field :email, autofocus: true, :class => "form-control login-inputs", :placeholder => "Email" %>
                 </div>
             </div>
         </div>
@@ -18,12 +18,21 @@
         <div class="row">
             <div class="col-xs-6">
                 <div class="field">
-                    <%= f.text_field :first_name, autofocus: true, :class => "form-control", :placeholder => "First Name"  %>
+                    <%= f.text_field :first_name, autofocus: true, :class => "form-control login-inputs", :placeholder => "First Name"  %>
                 </div>
             </div>
             <div class="col-xs-6">
                 <div class="field">
-                    <%= f.text_field :last_name, autofocus: true, :class => "form-control", :placeholder => "Last Name"  %>
+                    <%= f.text_field :last_name, autofocus: true, :class => "form-control login-inputs", :placeholder => "Last Name"  %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="field">
+                    <%= f.text_field :city, :class => "form-control login-inputs", :placeholder => "City"  %>
                 </div>
             </div>
         </div>
@@ -32,21 +41,12 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class="field">
-                    <%= f.text_field :city, :class => "form-control", :placeholder => "City"  %>
+                    <%= f.password_field :password, autocomplete: "off", :class => "form-control login-inputs", :placeholder => "Password"  %>
                 </div>
             </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-6">
+            <div class="col-xs-12">
                 <div class="field">
-                    <%= f.password_field :password, autocomplete: "off", :class => "form-control", :placeholder => "Password"  %>
-                </div>
-            </div>
-            <div class="col-xs-6">
-                <div class="field">
-                    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control",:placeholder => "Password Confirmation" %>
+                    <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control login-inputs",:placeholder => "Password Confirmation" %>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
-                <div class="modal-footer submitButton">
+                <div class="submitButton">
                     <div class="actions text-center">
                         <%= f.submit "Sign up",:class => "myButton" %>
                     </div>

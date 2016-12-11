@@ -1,56 +1,71 @@
-<div class="overflow">
-    <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :loop => true, :size => "320x240", :muted => true %>
-</div>
-
-<div class="form_for">
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-  <div class="panel panel-default edit-form">
-    <div class="panel-heading text-center"><h3>Sign Up</h3>
-    <div class="panel-body">
-      <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+<%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :loop => true, :size => "320x240", :muted => true %>
+<div class="panel panel-default sign-log-in-panel">
+  <div class="modal-header">
+      <h2 class="text-center">Sign Up</h2>
   </div>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-<p>
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-</p>
-<% end %>
-
-<%= render "devise/shared/links" %>
-</div>
-</div>
-</div>
-</div>
+  <div class="modal-body">
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <%= devise_error_messages! %>
+                  <div class="field">
+                      <%= f.email_field :email, autofocus: true, :class => "form-control login-inputs", :placeholder => "Email" %>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-6">
+                  <div class="field">
+                      <%= f.text_field :first_name, autofocus: true, :class => "form-control login-inputs", :placeholder => "First Name"  %>
+                  </div>
+              </div>
+              <div class="col-xs-6">
+                  <div class="field">
+                      <%= f.text_field :last_name, autofocus: true, :class => "form-control login-inputs", :placeholder => "Last Name"  %>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="field">
+                      <%= f.text_field :city, :class => "form-control login-inputs", :placeholder => "City"  %>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="field">
+                      <%= f.password_field :password, autocomplete: "off", :class => "form-control login-inputs", :placeholder => "Password"  %>
+                  </div>
+              </div>
+              <div class="col-xs-12">
+                  <div class="field">
+                      <%= f.password_field :password_confirmation, autocomplete: "off", :class => "form-control login-inputs",:placeholder => "Password Confirmation" %>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="container">
+          <div class="row">
+              <div class="col-xs-12">
+                  <div class="submitButton">
+                      <div class="actions text-center">
+                          <%= f.submit "Sign up",:class => "myButton" %>
+                          <div class="text-center">
+                            <%= render "devise/shared/links" %>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  <% end %>
 </div>

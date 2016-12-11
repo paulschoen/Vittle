@@ -5,11 +5,12 @@ class HomeController < ApplicationController
     include Yelp::V2::Search::Request
     def index
       @lat = (request.location.latitude.to_s) + ',' + (request.location.longitude.to_s)
-      @origin = params["origin"] || @lat
+      @origin = params[Geokit::LatLng.new('origin')] || @lat
+      @city = params[:city] || @lat
       client = Yelp::Client.new
       @request = Location.new(
           term: 'restaurant',
-          city: @origin
+          city: @city
       )
       response = client.search(@request)
       @businesses = response['businesses']
