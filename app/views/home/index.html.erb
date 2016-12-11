@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <div class=" actions text-center">
-                    <%= submit_tag("Use My Location!", class: "myButtonLocation myButtonLocationV2") %>
+                    <%= submit_tag("Searching...",id: "gps", class: "myButtonLocation myButtonLocationV2") %>
                 </div>
             </div>
             <% end %>
@@ -94,15 +94,12 @@
             $(".suggestion-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
             $("#rest-tab").addClass(" active");
             $('#sugg-tab').removeClass("active");
-            navigator.geolocation.getCurrentPosition(success, error, options);
         } else {
             if ($('#restaurant-container').hasClass('restaurant-container')) {
                 $(".restaurant-container").replaceWith("<%= escape_javascript(render('get_restaurant'))%>");
-                navigator.geolocation.getCurrentPosition(success, error, options);
             } else {
                 $('.partial-load').append("<%= escape_javascript(render('get_restaurant'))%>");
                 $("#rest-tab").addClass(" active");
-                navigator.geolocation.getCurrentPosition(success, error, options);
             }
         }
     }
@@ -112,16 +109,13 @@
             $("#restaurant-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
             $("#sugg-tab").addClass(" active");
             $('#rest-tab').removeClass("active");
-            navigator.geolocation.getCurrentPosition(success, error, options);
         } else {
             if ($('#suggestion-container').hasClass('suggestion-container')) {
                 console.log('inner if');
                 $(".suggestion-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
-                navigator.geolocation.getCurrentPosition(success, error, options);
             } else {
                 $('.partial-load').append("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
                 $("#sugg-tab").addClass(" active");
-                navigator.geolocation.getCurrentPosition(success, error, options);
             }
         }
 
