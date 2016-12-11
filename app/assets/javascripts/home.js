@@ -19,11 +19,7 @@ var options = {
 function success(pos) {
   // global variable
   var crd = pos.coords;
-  console.log(crd.latitude + '' + crd.longitude);
   $('#hidden-latfield').val(crd.latitude + ',' + crd.longitude);
-  console.log('Latitude : ' + crd.latitude);
-  console.log('Longitude: ' + crd.longitude);
-  console.log('More or less ' + crd.accuracy + ' meters.');
 }
 
 function error(err) {

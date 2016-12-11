@@ -1,22 +1,57 @@
 <div class="home-container">
-    <ul class="nav nav-tabs">
-        <li id="rest-tab" role="presentation" class="take-all-space-you-can <%= 'active' if params[:city] != nil %>">
-            <a class="render-restaurants text-center">Restaurants</a>
+    <ul id="myTabs" class="nav nav-tabs">
+        <li id="rest-tab" role="presentation" class="take-all-space-you-can active">
+            <a href="#rest" class="render-restaurants text-center" data-toggle="tab">Restaurants</a>
         </li>
         <li id="sugg-tab" role="presentation" class="take-all-space-you-can <%= 'active' if params[:origin] != nil %>">
-            <a class="render-suggestions text-center">Suggestions</a>
+            <a href='#sugg' class="render-suggestions text-center" data-toggle="tab">Suggestions</a>
         </li>
     </ul>
+    <div class="container">
+        <div class="row">
+            <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
+            <%=  text_field_tag('origin', nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
+            <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
+            <% end %>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <%= form_tag(home_index_url, :class => "input-group", :method => "get") do %>
+            <%=  hidden_field('origin', nil, value: '',:name => 'origin', class: 'form-control col-xs-offset-1', id: "hidden-latfield") %>
+            <span class="input-group-btn"><%= submit_tag("Use My Location!", class: "myButtonLocation") %></span>
+            <% end %>
+        </div>
+    </div>
+
     <div class="partial-load"></div>
 </div>
-
-<div id="city" data-city="<%= @city %>"></div>
+<div id="city" data-city="<%= @origin %>"></div>
 <div id="origin" data-origin="<%= @origin %>"></div>
 
 <script type="text/javascript">
     $(function () {
+        $('#myTabs').click(function (e) {
+            e.preventDefault();
+            $(this).tab('active');
+            console.log('show hash');
+        });
+
+        // store the currently selected tab in the hash value
+        $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
+            var id = $(e.target).attr("href").substr(1);
+            window.location.hash = id;
+            console.log('stored hash');
+        });
+
+        // on load of the page: switch to the currently selected tab
+        var hash = window.location.hash;
+        $('#myTab a[href="' + hash + '"]').tab('show');
+        console.log('WORKED');
+
         checkSuggestionPartial();
         checkRestaurantPartial();
+
     });
 
     $(".render-restaurants").click(function () {
@@ -28,14 +63,14 @@
     });
 
     function checkRestaurantPartial() {
-        var city = $('#city').data().city;
+        var city = $('#origin').data().city;
         if (city) {
             renderRestaurants();
 
         }
     }
     function checkSuggestionPartial() {
-        var origin = $('#origin').data('origin');
+        var origin = $('#origin').data("origin")
         if (origin) {
             renderSuggestions();
         }
@@ -61,23 +96,21 @@
 
     function renderSuggestions() {
         if ($('.partial-load').children().hasClass("restaurant-container")) {
-            console.log('first if');
             $("#restaurant-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
             $("#sugg-tab").addClass(" active");
             $('#rest-tab').removeClass("active");
             navigator.geolocation.getCurrentPosition(success, error, options);
         } else {
-            console.log('else');
             if ($('#suggestion-container').hasClass('suggestion-container')) {
                 console.log('inner if');
                 $(".suggestion-container").replaceWith("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
                 navigator.geolocation.getCurrentPosition(success, error, options);
             } else {
-                console.log('last else');
                 $('.partial-load').append("<%= escape_javascript(render('suggestions/get_suggestions', suggestions: @suggestions))%>");
                 $("#sugg-tab").addClass(" active");
                 navigator.geolocation.getCurrentPosition(success, error, options);
             }
         }
+
     }
 </script>

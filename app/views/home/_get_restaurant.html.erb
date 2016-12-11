@@ -1,23 +1,7 @@
 <div id="restaurant-container" class="restaurant-container">
 
-<div class="container">
-  <div class="row">
-        <%= form_for(home_index_path,:class => "input-group", :method => "get") do %>
-        <%=  text_field_tag('city', nil, placeholder: 'Type in a city!', class: 'form-control col-xs-9') %>
-        <span class="input-group-btn"><%= submit_tag("Go!", class: "btn") %></span>
-        <% end %>
-  </div>
-</div>
-<div class="container">
-  <div class="row">
-    <%= form_for(home_index_path, :class => "input-group", :method => "get") do %>
-    <%=  hidden_field(:city, nil, value: 'Fort Lauderdale', class: 'form-control col-xs-offset-1', id: "hidden-latfield") %>
-    <span class="input-group-btn"><%= submit_tag("Use My Location!", class: "myButtonLocation") %></span>
-    <% end %>
-  </div>
-</div>
-  <% if @businesses == nil %>
-      <%= image_tag("lilguy.gif", :class => "lilguy") %>
+    <% if @businesses == nil %>
+    <%= image_tag("lilguy.gif", :class => "lilguy") %>
 <% else %>
     <!-- This is the loop for the API call -->
     <% @businesses.each_with_index do |business, index| %>
@@ -45,7 +29,7 @@
                         </div>
                         <div class="row">
                             <h6 class="text-center">
-                              <%= @test %>
+                                <%= @test %>
                                 <%= business["categories"].first.first %>
                             </h6>
                         </div>
@@ -73,11 +57,11 @@
                         </button>
                     </div>
                     <div class="col-xs-offset-4 col-xs-1">
-                        <a id="dropdown" data-toggle="collapse" href="#collapse-<%= business['id'] %>">
-                            <span class="glyphicon glyphicon-chevron-down">
-                                <span><%= @sugs.count %></span>
-                            </span>
-                        </a>
+                        <div class="spin">
+                            <a class="dropdown" data-toggle="collapse" href="#collapse-<%= business['id'] %>">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </div>
+                            <span><%= @sugs.count %></span></a>
                     </div>
                 </div>
             </div>
@@ -151,4 +135,3 @@
 </div>
 <% end %>
 <% end %>
-</div>

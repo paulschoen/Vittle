@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="field">
                       <%= f.label :email %>
-                        <%= f.email_field :email, autofocus: true,:class => "form-control login-inputs", :placeholder => "Email" %>
+                        <%= f.email_field :email, autofocus: true,:class => "form-control form-control-custom login-inputs", :placeholder => "Email" %>
                         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
                         <div>Currently waiting confirmation for:
                             <%= resource.unconfirmed_email %></div>
@@ -20,7 +20,7 @@
             <div class="container">
                 <div class="row">
                     <div class="field">
-                        <%= f.password_field :city,:class => "form-control login-inputs", :placeholder => "City" %>
+                        <%= f.password_field :city,:class => "form-control form-control-custom login-inputs", :placeholder => "City" %>
                     </div>
                 </div>
             </div>
@@ -32,21 +32,21 @@
                       <em><%= @minimum_password_length %>
                           characters minimum</em>
                       <% end %>
-                        <%= f.password_field :password, autocomplete: "off",:class => "form-control login-inputs", :placeholder => "Password (Leave blank to not change it)" %>
+                        <%= f.password_field :password, autocomplete: "off",:class => "form-control form-control-custom login-inputs", :placeholder => "Password (Leave blank to not change it)" %>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="field">
-                        <%= f.password_field :password_confirmation, autocomplete: "off",:class => "form-control login-inputs", :placeholder => "Password Confirmation" %>
+                        <%= f.password_field :password_confirmation, autocomplete: "off",:class => "form-control form-control-custom login-inputs", :placeholder => "Password Confirmation" %>
                     </div>
                 </div>
             </div>
             <div class="container">
                 <div class="row">
                     <div class="field">
-                        <%= f.password_field :current_password, autocomplete: "off",:class => "form-control login-inputs", :placeholder => "Current Password" %>
+                        <%= f.password_field :current_password, autocomplete: "off",:class => "form-control form-control-custom login-inputs", :placeholder => "Current Password" %>
                     </div>
                 </div>
             </div>
