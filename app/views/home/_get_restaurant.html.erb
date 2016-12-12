@@ -48,11 +48,11 @@
                           </div>
                           <div class="rest-info text-right">
                             <h4>Last Recommended Item</h4><br />
-                            <% if @sugs[-1].menu_item == nil %>
-                            <h5>No Recent Menu Items Recommended :(</h5>
-                            <% else %>
-                            <h5><%= @sugs[-1].menu_item %></h5>
-                            <% end %>
+                            <div class="modal-footer">
+                              <% @sugs.each do |sug| %>
+                                <%= sug.menu_item %>
+                              <% end %>
+                            </div>
                           </div>
                       </div>
                     <div class="container">

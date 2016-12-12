@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'simple_hashtag'
 gem 'geocoder'
 gem 'hirb'
 gem 'yelp', require: 'yelp'

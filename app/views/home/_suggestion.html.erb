@@ -20,6 +20,7 @@
                     <%= f.hidden_field :latitude, value: business["location"]["coordinate"]["latitude"] %>
                     <%= f.hidden_field :longitude, value: business["location"]["coordinate"]["longitude"] %>
                     <%= f.hidden_field :users_name, value: @users_name %>
+                    <%= f.text_field :hashtags %>
                 </div>
             </div>
         </div>

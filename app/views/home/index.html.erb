@@ -44,24 +44,6 @@
 
 <script type="text/javascript">
     $(function () {
-        $('#myTabs').click(function (e) {
-            e.preventDefault();
-            $(this).tab('active');
-            console.log('show hash');
-        });
-
-        // store the currently selected tab in the hash value
-        $("ul.nav-tabs > li > a").on("shown.bs.tab", function (e) {
-            var id = $(e.target).attr("href").substr(1);
-            window.location.hash = id;
-            console.log('stored hash');
-        });
-
-        // on load of the page: switch to the currently selected tab
-        var hash = window.location.hash;
-        $('#myTab a[href="' + hash + '"]').tab('show');
-        console.log('WORKED');
-
         checkSuggestionPartial();
         checkRestaurantPartial();
 

@@ -7,6 +7,8 @@ class Suggestion < ApplicationRecord
                    :lng_column_name => :longitude
 
     before_validation :geo_address, on: :get
+    include SimpleHashtag::Hashtaggable
+    hashtaggable_attribute :hashtags
 
     scope :yelp_id_match, -> (business_id) {where('yelp_id = ?', business_id)}
 

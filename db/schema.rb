@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161208182916) do
+ActiveRecord::Schema.define(version: 20161212014043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,21 @@ ActiveRecord::Schema.define(version: 20161208182916) do
     t.string   "yelp_id"
   end
 
+  create_table "simple_hashtag_hashtaggings", force: :cascade do |t|
+    t.integer "hashtag_id"
+    t.string  "hashtaggable_type"
+    t.integer "hashtaggable_id"
+    t.index ["hashtag_id"], name: "index_simple_hashtag_hashtaggings_on_hashtag_id", using: :btree
+    t.index ["hashtaggable_id", "hashtaggable_type"], name: "index_hashtaggings_hashtaggable_id_hashtaggable_type", using: :btree
+  end
+
+  create_table "simple_hashtag_hashtags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["name"], name: "index_simple_hashtag_hashtags_on_name", using: :btree
+  end
+
   create_table "suggestions", force: :cascade do |t|
     t.text     "body"
     t.datetime "created_at", null: false
@@ -37,6 +52,7 @@ ActiveRecord::Schema.define(version: 20161208182916) do
     t.float    "longitude"
     t.string   "menu_item"
     t.string   "users_city"
+    t.string   "hashtags"
   end
 
   create_table "users", force: :cascade do |t|
