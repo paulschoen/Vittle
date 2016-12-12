@@ -3,9 +3,10 @@
   <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true, :loop => true %>
 </div>
 
+<div id="welcome" class="hidden">
 
 <% if user_signed_in? %>
-<div class="text-center hidden">
+<div class="text-center">
     <div class>
         <h1 class="title text-center">Welcome Back</h1>
         <h1 class="title2 text-center"><%= current_user.first_name %></h1>
@@ -14,7 +15,7 @@
 </div>
 
 <% else %>
-<div class="text-center hidden">
+<div class="text-center">
   <div class="container">
     <div class="row">
       <div class="vittle-logo">
@@ -54,4 +55,6 @@
             </div>
         </div>
     </div>
+</div>
+
 </div>
