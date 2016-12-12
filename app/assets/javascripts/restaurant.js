@@ -1,7 +1,13 @@
-$('span.glyphicon').click(function() {
-    if (('span.glyphicon').hasClass('spin-js')) {
-        $('span.glyphicon').removeClass('spin-js');
-    } else {
-        $('span.glyphicon').addClass('spin-js');
-    }
+$(window).on("turbolinks:load", function() {
+  $('#sugg-tab').click(function() {
+    console.log('hi');
+        $('#suggestion-container').removeClass('hidden');
+        $('#restaurant-container').addClass('hidden');
+  });
+
+  $('#rest-tab').click(function() {
+    console.log('sup');
+        $('#restaurant-container').removeClass('hidden');
+        $('#suggestion-container').addClass('hidden');
+  });
 });

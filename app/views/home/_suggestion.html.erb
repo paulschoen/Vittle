@@ -20,14 +20,14 @@
                     <%= f.hidden_field :latitude, value: business["location"]["coordinate"]["latitude"] %>
                     <%= f.hidden_field :longitude, value: business["location"]["coordinate"]["longitude"] %>
                     <%= f.hidden_field :users_name, value: @users_name %>
-                    <%= f.text_field :hashtags %>
+                    <%#= f.text_field :hashtags %>
                 </div>
             </div>
         </div>
         <div class="container">
             <div class="row">
               <div class="text-center">
-                <%= f.submit 'Add a Suggestion', id: 'suggestion-submit',class: "myButtonLocation" %>
+                <%= f.submit 'Add a Suggestion', id: 'suggestion-submit',class: "myButtonLocation",:data => { disable_with: false } %>
                 <% end %>
               </div>
             </div>

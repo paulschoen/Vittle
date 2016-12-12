@@ -12,12 +12,14 @@ class SuggestionsController < ApplicationController
         @users_name = "#{current_user.first_name} #{current_user.last_name}"
         @suggestion.save
 
-        redirect_back(fallback_location: home_index_path)
+      respond_to do |format|
+        format.js
+      end
     end
 
     private
 
     def suggestion_params
-        params.require(:suggestion).permit(:yelp_id, :body, :users_name, :latitude, :longitude, :users_city, :menu_item)
+        params.require(:suggestion).permit(:yelp_id, :body, :users_name, :latitude, :longitude, :users_city, :menu_item, :hashtags)
     end
 end

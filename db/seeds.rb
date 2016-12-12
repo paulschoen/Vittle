@@ -12,6 +12,4 @@ yelp = [
 ]
 
 
-yelp.each do |body, yelp_id|
-  Suggestion.create( body: body, yelp_id: yelp_id )
-end
+Suggestion.create(body: "Ink 1",yelp_id: "the-sybarite-pig-boca-raton",users_name: "Paul Schroen",latitude: "26.36935",longitude: "-80.20259",menu_item: "dinner",users_city: "cincy",hashtags: "#rock #sock")
