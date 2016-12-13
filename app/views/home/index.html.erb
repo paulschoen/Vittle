@@ -45,6 +45,7 @@
         <!-- This is the loop for the API call -->
         <% @businesses.each_with_index do |business, index| %>
         <% @sugs = Suggestion.yelp_id_match(business["id"]) %>
+        <% most_most_recent = @sugs.last %>
         <!-- This is the loop to match the suggestions with yelp id -->
 
         <div class="panel rest-panel panel-default">
@@ -87,11 +88,12 @@
                               </div>
                               <div class="rest-info text-right">
                                 <h5>Last Recommended Item</h5><br />
-                                <div class="modal-footer">
-                                  <% @sugs.each do |sug| %>
-                                    <%= sug.menu_item.last %>
+                                <div class="modal-footer modal-footer-custom"></div>
+                                  <% if most_most_recent == nil %>
+                                    <p>No items have been suggested yet :(</p>
+                                  <% else %>
+                                    <p><%= most_most_recent.menu_item %></p>
                                   <% end %>
-                                </div>
                               </div>
                           </div>
                         <div class="container">
