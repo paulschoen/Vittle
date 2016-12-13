@@ -180,7 +180,7 @@
                               </div>
                               <div class="col-xs-4">
                                 <div class="avatar">
-                                    <img class="img-circle center-block" src="<%= Gravatar.new(sug.email).image_url %>?d=https://placekitten.com/g/80/80 ">
+                                    <img class="img-circle center-block" style="height: 70px;" src="<%= Gravatar.new(sug.email).image_url %>?d=https://placekitten.com/g/80/80">
                                 </div>
                               </div>
                           </div>
@@ -298,7 +298,7 @@
                                     <a href="https://www.google.com/maps/dir//<%= suggestion.latitude %>,+<%= suggestion.longitude %>/">
                                         <img
                                             class="rounded img-responsive"
-                                            src="http://maps.googleapis.com/maps/api/staticmap?center=<%= suggestion.latitude %>,+<%= suggestion.longitude %>&zoom=17&scale=false&size=300x300&maptype=roadmap&format=png&visual_refresh=true&markers=icon:http://i.imgur.com/svyFpfv.png%7Cshadow:true%7C25.7650461623728,+-80.2514094779099"
+                                            src="http://maps.googleapis.com/maps/api/staticmap?center=<%= suggestion.latitude %>,+<%= suggestion.longitude %>&zoom=17&scale=false&size=300x300&maptype=roadmap&format=png&visual_refresh=true"
                                             alt="Google Map of 25.7650461623728, -80.2514094779099">
                                         <div class="row">
                                             <div class="col-xs-10">
@@ -322,7 +322,7 @@
                                   <div class="quick-info">
                                       <div class="">
                                           <a class="" href="tel:+<%= yelp_response['phone'] %>">
-                                            <h5><i class="glyphicon glyphicon-phone"></i><%= yelp_response['display_phone'] %> </h5>
+                                            <h5><i class="glyphicon glyphicon-phone"></i>   <%= yelp_response['display_phone'] %> </h5>
                                           </a>
                                       </div>
                                       <div class="rest-info">
