@@ -8854,7 +8854,14 @@ li.active > a {
   display: inline-block;
   margin-top: 1em;
 }
-
+.sugg-panel-for-rest-title{
+  color: black;
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+}
+.sugg-panel-for-rest-title > h3{
+  margin: 0.5em;
+}
 .sign-log-in-panel {
     margin: 1em;
 }
