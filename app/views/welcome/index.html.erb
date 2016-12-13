@@ -1,9 +1,6 @@
-
 <div class="container">
-  <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true, :loop => true %>
+    <%= video_tag "lunch.webm",:autoplay => true,:id => "fullscreen-bg", :controls => false, :size => "320x240", :muted => true, :loop => true %>
 </div>
-
-<div id="welcome" class="hidden">
 
 <% if user_signed_in? %>
 <div class="text-center">
@@ -14,26 +11,26 @@
     <%= button_to "Dashboard", home_index_path, {method: :get,class: 'myButton text-center'}  %>
 </div>
 
-<% else %>
-<div class="text-center">
-  <div class="container">
-    <div class="row">
-      <div class="vittle-logo">
-        <%= image_tag "Vittle-logo.png", :class => "img-responsive"  %>
-      </div>
-    </div>
-  </div>
+
+<div class="text-center hidden">
     <div class="container">
-      <div class="row">
-        <div class="btn-group-vertical" role="group" aria-label="...">
-          <div class="row">
-            <button type="button" class='myButton text-center' data-toggle="modal" data-target="#logIn" type="button" name="button">Log In</button>
-          </div>
-          <div class="row">
-              <button type="button" class='myButton text-center' data-toggle="modal" data-target="#signUp" type="button" name="button">Sign Up</button>
-          </div>
+        <div class="row">
+            <div class="vittle-logo">
+                <%= image_tag "Vittle-logo.png", :class => "img-responsive"  %>
+            </div>
         </div>
-      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="btn-group-vertical" role="group" aria-label="...">
+                <div class="row">
+                    <button type="button" class='myButton text-center' data-toggle="modal" data-target="#logIn" type="button" name="button">Log In</button>
+                </div>
+                <div class="row">
+                    <button type="button" class='myButton text-center' data-toggle="modal" data-target="#signUp" type="button" name="button">Sign Up</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <% end %>
