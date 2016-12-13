@@ -293,33 +293,7 @@
                         <div class="panel rest-panel panel-default">
                           <div class="container">
                             <div class="row">
-                              <div class="rest-panel-pic"><img src="<%= yelp_response['image_url'] %>" /></div>
-                            </div>
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-xs-12">
-                                  <div class="quick-info">
-                                      <div class="text-right">
-                                          <a class="text-right" href="tel:+<%= yelp_response['phone'] %>">
-                                            <h3><%= yelp_response['display_phone'] %> </h3>
-                                          </a>
-                                      </div>
-                                      <div class="rest-info text-right">
-                                          <a class="rest-info text-right" href="<%= yelp_response["mobile_url"]  %>">
-                                              <h3>Yelp Link   <i class="fa fa-yelp" aria-hidden="true"></i></h3>
-                                          </a>
-                                      </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            </div>
-                          </div>
-                          <div>
-                            <br />
-                          </div>
-                          <div class="panel panel-default rest-panel">
-                              <div class="panel-body">
+                              <div class="">
                                 <div class="google-map center-block">
                                     <a href="https://www.google.com/maps/dir//<%= suggestion.latitude %>,+<%= suggestion.longitude %>/">
                                         <img
@@ -341,6 +315,26 @@
                                     </a>
                                 </div>
                               </div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <div class="quick-info">
+                                      <div class="">
+                                          <a class="" href="tel:+<%= yelp_response['phone'] %>">
+                                            <h5><i class="glyphicon glyphicon-phone"></i><%= yelp_response['display_phone'] %> </h5>
+                                          </a>
+                                      </div>
+                                      <div class="rest-info">
+                                          <a class="rest-info" href="<%= yelp_response["mobile_url"]  %>">
+                                              <h5><i class="fa fa-yelp" aria-hidden="true"></i>     Yelp Link</h5>
+                                          </a>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
                           </div>
                         </div>
                       </div>
