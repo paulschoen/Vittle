@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <%= form_tag(home_index_path,:class => "input-group", :method => "get") do %>
-                <%=  text_field_tag('origin', nil, placeholder: 'Type in a Zipcode, City or Street Address!', class: 'form-control form-control-V2 col-xs-9') %>
+                <%=  text_field_tag('origin', nil, placeholder: 'Type in a Zip Code, City or Street Address!', class: 'form-control form-control-V2 col-xs-9') %>
                 <span class="input-group-btn"><%= submit_tag("Go!", class: "btn form-control-V2") %></span>
                 <% end %>
             </div>
@@ -113,7 +113,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xs-6">
-                            <button type="button" data-toggle="modal" data-target="#suggest<%= business['id'] %>">
+                            <button class="plus-btn" type="button" data-toggle="modal" data-target="#suggest<%= business['id'] %>">
                                 <span class="glyphicon glyphicon-plus"></span>
                             </button>
                         </div>
