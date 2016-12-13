@@ -18,6 +18,7 @@ class HomeController < ApplicationController
         @users_name = "#{current_user.first_name} #{current_user.last_name}"
         @location_suggestions = Suggestion.within(15, :origin=>@origin)
         @users_city = "#{current_user.city}"
+        @users_email = "#{current_user.email}"
     end
 
     def create

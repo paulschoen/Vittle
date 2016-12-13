@@ -20,6 +20,6 @@ class SuggestionsController < ApplicationController
     private
 
     def suggestion_params
-        params.require(:suggestion).permit(:yelp_id, :body, :users_name, :latitude, :longitude, :users_city, :menu_item, :hashtags)
+        params.require(:suggestion).permit(:yelp_id, :body, :users_name, :latitude, :longitude, :users_city, :menu_item, :email)
     end
 end

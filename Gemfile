@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+
+gem 'gravatar-ultimate'
 gem 'simple_hashtag'
 gem 'geocoder'
 gem 'hirb'

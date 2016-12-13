@@ -12,6 +12,10 @@ class Suggestion < ApplicationRecord
 
     scope :yelp_id_match, -> (business_id) {where('yelp_id = ?', business_id)}
 
+    def get_gravatar_pic(email)
+      Gravatar.new(email).image_url
+    end
+
     def call_yelp
         client = Yelp::Client.new
         request = Id.new(

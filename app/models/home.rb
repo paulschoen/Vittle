@@ -1,5 +1,7 @@
 class Home < ApplicationRecord
-  
+  def get_gravatar_pic(email)
+    Gravatar.new(email).image_url
+  end
 
   def get_lat
     self["location"]["coordinate"]["longitude"]
