@@ -14,6 +14,14 @@
     </head>
 
     <body>
+      <div class="hidden-xs">
+        <div class="panel panel default text-center rest-panel">
+          <h1 class"text-center">I'm sorry but Vittle isn't quite ready for larger screens yet. Please check us out on your phone though!</h1>
+        </div>
+        <%= image_tag "lilguymobile.gif",class: "img-responsive lilmobileguy center-block" %>
+      </div>
+      <div class="hidden-sm hidden-md hidden-lg hidden-xl">
+
         <nav class="navbar-inverse navbar-static-top" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -48,5 +56,7 @@
         </nav>
 
         <%= yield %>
+
+      </div>
     </body>
 </html>
