@@ -3,7 +3,7 @@
 </div>
 
 <div id="welcome" class="hidden">
-
+<!-- If user is logged in -->
 <% if user_signed_in? %>
 <div class="text-center">
     <div class>
@@ -12,7 +12,8 @@
     </div>
     <%= button_to "Dashboard", home_index_path, {method: :get,class: 'myButton text-center'}  %>
 </div>
-
+<!-- End of user logged in -->
+<!-- Default Welcome Page -->
 <% else %>
 <div class="text-center">
   <div class="container">
@@ -55,5 +56,5 @@
         </div>
     </div>
 </div>
-
+<!-- End of Default Welcome Page -->
 </div>

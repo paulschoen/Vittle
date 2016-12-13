@@ -8831,14 +8831,34 @@ div.vittle-logo > img {
 
 li.active > a {
     background-color: #15d17c;
-}
 
+}
 .render-suggestions {
     margin: auto;
+}
+.rest-panel-pic{
+  margin: 0px;
+    overflow: hidden;
+}
+.rest-panel-pic > img{
+  filter: blur(5px);
+        -webkit-filter: blur(10px);
+        -moz-filter: blur(10px);
+        -o-filter: blur(10px);
+        -ms-filter: blur(10px);
+    margin: -5px -10px -10px -5px;
+  height: 100px;
+  width: 100%;
 }
 
 .sign-log-in-panel {
     margin: 1em;
+}
+.small-modal{
+  padding: 0.5em 0em;
+}
+.user-city{
+  color: lightgray;
 }
 // Search Area
 

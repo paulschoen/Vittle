@@ -36,235 +36,313 @@
             <% end %>
         </div>
     </div>
+</div>
 
-    <div id="restaurant-container" class="restaurant-container">
+<div id="restaurant-container" class="restaurant-container">
 
-        <% if @businesses == nil %>
-        <%= image_tag("lilguy.gif", :class => "lilguy") %>
-    <% else %>
-        <!-- This is the loop for the API call -->
-        <% @businesses.each_with_index do |business, index| %>
-        <% @sugs = Suggestion.yelp_id_match(business["id"]) %>
-        <% most_most_recent = @sugs.last %>
-        <!-- This is the loop to match the suggestions with yelp id -->
+    <% if @businesses == nil %>
+    <%= image_tag("lilguy.gif", :class => "lilguy") %>
+<% else %>
+    <!-- This is the loop for the API call -->
+    <% @businesses.each_with_index do |business, index| %>
+    <% @sugs = Suggestion.yelp_id_match(business["id"]) %>
+    <% most_recent = @sugs.last %>
+    <!-- This is the loop to match the suggestions with yelp id -->
 
-        <div class="panel rest-panel panel-default">
-            <div class="panel-head">
-                <div class="panel-title">
-                    <h3 class="text-center panel-head" id="business-name-<%= index %>"><%= business["name"] %></h3>
-                </div>
+    <div class="panel rest-panel panel-default">
+        <div class="panel-head">
+            <div class="panel-title">
+                <h3 class="text-center panel-head" id="business-name-<%= index %>"><%= business["name"] %></h3>
+            </div>
 
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-5">
-                            <div class="row">
-                                <% if business["image_url"] == nil %>
-                                <% image_tag "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-breed-landing-hero.ashx"%>
-                            <% else %>
-                                <%= image_tag business["image_url"], class: "img-thumbnail rest-thumbnail item" %>
-                                <% if business["location"]["display_address"] == nil %>
-                                <h6>No address provided</h6>
-                            <% else %>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-5">
+                        <div class="row">
+                            <% if business["image_url"] == nil %>
+                            <% image_tag "https://www.royalcanin.com/~/media/Royal-Canin/Product-Categories/cat-breed-landing-hero.ashx"%>
+                        <% else %>
+                            <%= image_tag business["image_url"], class: "img-thumbnail rest-thumbnail item" %>
+                            <% if business["location"]["display_address"] == nil %>
+                            <h6>No address provided</h6>
+                        <% else %>
+                            <% end %>
+                        </div>
+                        <div class="row">
+                            <h6 class="text-center">
+                                <%= @test %>
+                                <%= business["categories"].first.first %>
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="modal-body quick-info">
+                            <div class="text-right">
+                                <a class="text-right" href="tel:+<%= business['phone'] %>"><%= business['display_phone'] %>
+                                    <span class="glyphicon glyphicon-phone"></span>
+                                </a>
+                            </div>
+                            <div class="rest-info text-right">
+                                <a class="rest-info text-right" href="<%= business["mobile_url"] %>">
+                                    Yelp Link
+                                    <i class="fa fa-yelp" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                            <div class="rest-info text-right">
+                                <h5>Last Recommended Item</h5><br/>
+                                <div class="modal-footer modal-footer-custom"></div>
+                                <% if most_recent == nil %>
+                                <p>No items have been suggested yet :(</p>
+                                <% else %>
+                                <p><%= most_recent.menu_item %></p>
                                 <% end %>
                             </div>
-                            <div class="row">
-                                <h6 class="text-center">
-                                    <%= @test %>
-                                    <%= business["categories"].first.first %>
-                                </h6>
-                            </div>
                         </div>
-                        <div class="col-xs-7">
-                          <div class="modal-body quick-info">
-                            <div class="text-right">
-                              <a class="text-right" href="tel:+<%= business['phone'] %>"><%= business['display_phone'] %>
-                                  <span class="glyphicon glyphicon-phone"></span>
-                              </a>
-                            </div>
-                              <div class="rest-info text-right">
-                                <a class="rest-info text-right" href="<%= business["mobile_url"] %>">
-                                  Yelp Link   <i class="fa fa-yelp" aria-hidden="true"></i>
-                                </a>
-                              </div>
-                              <div class="rest-info text-right">
-                                <h5>Last Recommended Item</h5><br />
-                                <div class="modal-footer modal-footer-custom"></div>
-                                  <% if most_most_recent == nil %>
-                                    <p>No items have been suggested yet :(</p>
-                                  <% else %>
-                                    <p><%= most_most_recent.menu_item %></p>
-                                  <% end %>
-                              </div>
-                          </div>
+                        <div class="container">
+                            <div class="row"></div>
+                        </div>
                         <div class="container">
                             <div class="row">
-
+                                <div class="col-xs-offset-7 col-xs-s5"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% end %>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <button class="plus-btn" type="button" data-toggle="modal" data-target="#suggest<%= business['id'] %>">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </button>
+                    </div>
+                    <div class="col-xs-offset-4 col-xs-1">
+                        <div class="spin">
+                            <a class="dropdown" data-toggle="collapse" href="#collapse-<%= business['id'] %>">
+                                <span class="glyphicon glyphicon-chevron-down"></span>
+                            </div>
+                            <span><%= @sugs.count %></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div id="collapse-<%= business['id'] %>" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div class="more-rest-info">
+                        <!-- Google Maps -->
+                        <div class="panel panel-default">
+                            <div class="panel-body">
+                                <div class="container ">
+                                    <div class="row">
+                                        <a href="https://www.google.com/maps/dir//<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>/">
+                                            <img
+                                                class="rounded img-responsive"
+                                                src="http://maps.googleapis.com/maps/api/staticmap?center=<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>&zoom=17&scale=false&size=300x300&maptype=roadmap&format=png&visual_refresh=true&markers=icon:http://i.imgur.com/svyFpfv.png%7Cshadow:true%7C25.7650461623728,+-80.2514094779099"
+                                                alt="Google Map of 25.7650461623728, -80.2514094779099">
+                                        </a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="container">
-                              <div class="row">
-                                  <div class="col-xs-offset-7 col-xs-s5">
-
-                                  </div>
-                              </div>
-                            </div>
+                                <a href="https://www.google.com/maps/dir//<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>/">
+                                    <div class="row">
+                                        <div class="col-xs-10">
+                                        <li class="address">
+                                            <% business["location"]["display_address"].each do |line| %>
+                                            <%= line %>
+                                            <% end %>
+                                        </li>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="glyphicon glyphicon-chevron-right"></span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <!--End of Google Maps -->
+                    <% @sugs.each do |sug| %>
+                    <div class="panel panel-default">
+                        <div class="model-head">
+                            <h3 id="sug-user-name"><%= sug.users_name %></h3>
+                            <h4 id="sig-users-city">
+                                From:<br/>
+                                <%= sug.users_city %></h4>
+                            <p id="sug-menu-item">
+                                Recommends:<br/>
+                                <%= sug.menu_item %>
+                            </p>
+                            <p id="sug-body">
+                                Heres more he has to say:
+                                <br/>
+                                <%= sug.body %>
+                            </p>
                         </div>
                     </div>
                     <% end %>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xs-6">
-                            <button class="plus-btn" type="button" data-toggle="modal" data-target="#suggest<%= business['id'] %>">
-                                <span class="glyphicon glyphicon-plus"></span>
-                            </button>
-                        </div>
-                        <div class="col-xs-offset-4 col-xs-1">
-                            <div class="spin">
-                                <a class="dropdown" data-toggle="collapse" href="#collapse-<%= business['id'] %>">
-                                    <span class="glyphicon glyphicon-chevron-down"></span>
-                                </div>
-                                <span><%= @sugs.count %></span></a>
-                        </div>
-                    </div>
-                </div>
-                <div id="collapse-<%= business['id'] %>" class="panel-collapse collapse">
-                    <div class="panel-body">
-                        <div class="more-rest-info">
-                            <!-- Google Maps -->
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <div class="container">
-                                        <div class="row">
-                                            <a href="https://www.google.com/maps/dir//<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>/">
-                                                <img
-                                                    class="rounded img-responsive"
-                                                    src="http://maps.googleapis.com/maps/api/staticmap?center=<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>&zoom=17&scale=false&size=300x300&maptype=roadmap&format=png&visual_refresh=true&markers=icon:http://i.imgur.com/svyFpfv.png%7Cshadow:true%7C25.7650461623728,+-80.2514094779099"
-                                                    alt="Google Map of 25.7650461623728, -80.2514094779099">
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <a href="https://www.google.com/maps/dir//<%= business['location']['coordinate']['latitude'] %>,+<%= business['location']['coordinate']['longitude'] %>/">
-                                        <div class="row">
-                                            <div class="col-xs-10">
-                                            <li class="address">
-                                                <% business["location"]["display_address"].each do |line| %>
-                                                <%= line %>
-                                                <% end %>
-                                            </li>
-                                        </div>
-                                        <div class="col-xs-2 text-center">
-                                            <span class="glyphicon glyphicon-chevron-right"></span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        </div>
-                        <!--End of Google Maps -->
-                        <% @sugs.each do |sug| %>
-                        <div class="panel panel-default">
-                            <div class="model-head">
-                                <h3 id="sug-user-name"><%= sug.users_name %></h3>
-                                <h4 id="sig-users-city">
-                                    From:<br/>
-                                    <%= sug.users_city %></h4>
-                                <p id="sug-menu-item">
-                                    Recommends:<br/>
-                                    <%= sug.menu_item %>
-                                </p>
-                                <p id="sug-body">
-                                    Heres more he has to say:
-                                    <br/>
-                                    <%= sug.body %>
-                                </p>
-                            </div>
-                        </div>
-                        <% end %>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="modal fade suggestion-modal" id="suggest<%= business['id'] %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
+<div class="modal fade suggestion-modal" id="suggest<%= business['id'] %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <h3 class="text-center">Add a Suggestion</h3>
+                </div>
                 <div class="modal-body">
-                  <div class="modal-header">
-                      <h3 class="text-center">Add a Suggestion</h3>
-                  </div>
-                  <div class="modal-body">
-                      <div class="field">
-                          <div class="container">
-                              <div class="row">
-                                  <div class="col-xs-12">
-                                      <%= form_for(@suggestion, remote: true) do |f| %>
-                                      <%= f.text_field :menu_item, placeholder: "Menu Item You Loved!",class: "form-control form-control-custom" %>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="container">
-                              <div class="row">
-                                  <div class="col-xs-12">
-                                      <%= f.text_area :body, autofocus: true, placeholder: "Why do you suggest this place?", class: "form-control form-control-custom" %>
-                                      <%= f.hidden_field :yelp_id, value: business["id"] %>
-                                      <%= f.hidden_field :users_city, value: @users_city %>
-                                      <%= f.hidden_field :latitude, value: business["location"]["coordinate"]["latitude"] %>
-                                      <%= f.hidden_field :longitude, value: business["location"]["coordinate"]["longitude"] %>
-                                      <%= f.hidden_field :users_name, value: @users_name %>
-                                      <%#= f.text_field :hashtags %>
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="container">
-                              <div class="row">
-                                <div class="text-center">
-                                  <%= f.submit 'Add a Suggestion', id: 'suggestion-submit',class: "myButtonLocation",:data => { disable_with: false } %>
-                                  <% end %>
+                    <div class="field">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <%= form_for(@suggestion, remote: true) do |f| %>
+                                    <%= f.text_field :menu_item, placeholder: "Menu Item You Loved!",class: "form-control form-control-custom" %>
                                 </div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <%= f.text_area :body, autofocus: true, placeholder: "Why do you suggest this place?", class: "form-control form-control-custom" %>
+                                    <%= f.hidden_field :yelp_id, value: business["id"] %>
+                                    <%= f.hidden_field :users_city, value: @users_city %>
+                                    <%= f.hidden_field :latitude, value: business["location"]["coordinate"]["latitude"] %>
+                                    <%= f.hidden_field :longitude, value: business["location"]["coordinate"]["longitude"] %>
+                                    <%= f.hidden_field :users_name, value: @users_name %>
+                                    <%#= f.text_field :hashtags %>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container">
+                            <div class="row">
+                                <div class="text-center">
+                                    <%= f.submit 'Add a Suggestion', id: 'suggestion-submit',class: "myButtonLocation",:data => { disable_with: false } %>
+                                    <% end %>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <% end %>
-    <% end %>
+</div>
+<% end %>
+<% end %>
 
 </div>
 
 <div id="suggestion-container" class="suggestion-container hidden">
 
-    <% if @location_suggestions.empty? %>
-    <%= image_tag("lilguy.gif", :class => "lilguy") %>
+<% if @location_suggestions.empty? %>
+<%= image_tag("lilguy.gif", :class => "lilguy") %>
 <% else %>
-    <% @location_suggestions.each do |suggestion| %>
-    <% yelp_response = suggestion.call_yelp %>
-    <div class="panel panel-default">
-        <div class="panel-head">
+<% @location_suggestions.each do |suggestion| %>
+<% yelp_response = suggestion.call_yelp %>
+<div class="panel rest-panel panel-default">
+    <div class="panel-head">
+        <div class="panel-title">
             <h3><%= yelp_response["name"] %></h3>
-            <h4 id="sug-user-name"><%= suggestion.users_name %></h4>
-            <h4>From:
-                <%= suggestion.users_city %></h4>
-            <p id="sug-menu-item">
-                Favorite Item on the Menu:
-                <%= suggestion.menu_item %>
-            </p>
-            <p id="sug-body">
-                <%= suggestion.body %>
-            </p>
-            <a data-toggle="collapse" href="#collapse-<%= yelp_response['id'] %>">
-                <span class="glyphicon glyphicon-chevron-down text-center"></span>
-            </a>
-            <div id="collapse-<%= yelp_response['id'] %>" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <div class="yelp-head">
-                        <div class="yelp-body">
-                            <%= image_tag yelp_response["image_url"], class: "rounded col-xs-5 item" %>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <h4 id="sug-user-name"><%= suggestion.users_name %></h4>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                      <p class="user-city"><%= suggestion.users_city %></p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p id="sug-menu-item">
+                        Favorite Item on the Menu:
+                        <%= suggestion.menu_item %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p id="sug-body">
+                      Heres more they had to say:<br />
+                        <%= suggestion.body %>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="text-center">
+          <a data-toggle="collapse" href="#collapse-sug-<%= yelp_response['id'] %>">
+              <span class="glyphicon glyphicon-chevron-down"></span>
+          </a>
+        </div>
+        <div id="collapse-sug-<%= yelp_response['id'] %>" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div class="yelp-head">
+                    <div class="yelp-body">
+                        <div class="panel rest-panel panel-default">
+                          <div class="container">
+                            <div class="row">
+                              <div class="rest-panel-pic"><img src="<%= yelp_response['image_url'] %>" /></div>
+                            </div>
+                            <div class="container">
+                              <div class="row">
+                                <div class="col-xs-12">
+                                  <div class="quick-info">
+                                      <div class="text-right">
+                                          <a class="text-right" href="tel:+<%= yelp_response['phone'] %>">
+                                            <h3><%= yelp_response['display_phone'] %> </h3>
+                                          </a>
+                                      </div>
+                                      <div class="rest-info text-right">
+                                          <a class="rest-info text-right" href="<%= yelp_response["mobile_url"] %>">
+                                              <h3>Yelp Link   <i class="fa fa-yelp" aria-hidden="true"></i></h3>
+                                          </a>
+                                      </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            </div>
+                          </div>
+                          <div>
+                            <br />
+                          </div>
+                          <div class="panel panel-default rest-panel">
+                              <div class="panel-body">
+                                <div class="google-map center-block">
+                                    <a href="https://www.google.com/maps/dir//<%= suggestion.latitude %>,+<%= suggestion.longitude %>/">
+                                        <img
+                                            class="rounded img-responsive"
+                                            src="http://maps.googleapis.com/maps/api/staticmap?center=<%= suggestion.latitude %>,+<%= suggestion.longitude %>&zoom=17&scale=false&size=300x300&maptype=roadmap&format=png&visual_refresh=true&markers=icon:http://i.imgur.com/svyFpfv.png%7Cshadow:true%7C25.7650461623728,+-80.2514094779099"
+                                            alt="Google Map of 25.7650461623728, -80.2514094779099">
+                                        <div class="row">
+                                            <div class="col-xs-10">
+                                                <li class="address">
+                                                    <% yelp_response["location"]["display_address"].each do |line| %>
+                                                    <%= line %>
+                                                    <% end %>
+                                                </li>
+                                            </div>
+                                            <div class="col-xs-1 text-center">
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                              </div>
+                          </div>
                         </div>
+                      </div>
                     </div>
                 </div>
             </div>
@@ -273,7 +351,6 @@
     <% end %>
     <% end %>
 </div>
-
 
 <div id="city" data-city="<%= @origin %>"></div>
 <div id="origin" data-origin="<%= @origin %>"></div>
