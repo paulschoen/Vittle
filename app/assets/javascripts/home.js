@@ -21,6 +21,7 @@ function success(pos) {
   $('#gps').val("Looking for location");
   var crd = pos.coords;
   $('#hidden-latfield').val(crd.latitude + ',' + crd.longitude);
+  $('#gps').prop("disabled", false);
   $('#gps').val("Location Found!");
   setTimeout(function(){$('#gps').val("Use My Location!");}, 1500);
 }
